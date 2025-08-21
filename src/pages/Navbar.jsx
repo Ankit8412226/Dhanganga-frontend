@@ -44,11 +44,11 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-8 text-gray-600">
               <div className="flex items-center space-x-2 hover:text-blue-600 transition-colors duration-200">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm font-medium">+91 98765 43210</span>
+                <span className="text-sm font-medium">+91 9234692692</span>
               </div>
               <div className="flex items-center space-x-2 hover:text-blue-600 transition-colors duration-200">
                 <MapPin className="w-4 h-4" />
-                <span className="text-sm font-medium">Patna, Bihar</span>
+                <span className="text-sm font-medium">Bhagalpur, Bihar</span>
               </div>
             </div>
 
