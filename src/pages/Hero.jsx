@@ -138,22 +138,7 @@ const Hero = () => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-              {/* Primary Button */}
-              <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-500 flex items-center justify-center">
-                Get Started Today
-                <ChevronRight className="w-5 h-5 ml-2 transition-transform duration-500 group-hover:translate-x-1" />
-              </button>
-
-              {/* Secondary Button */}
-              <button
-                onClick={() => setIsVideoPlaying(true)}
-                className="border-2 border-blue-600 text-white hover:bg-blue-600 hover:text-white font-semibold py-4 px-10 rounded-full transition-all duration-500 shadow-md hover:shadow-lg hover:scale-105 flex items-center justify-center"
-              >
-                <Play className="w-5 h-5 mr-2 transition-transform duration-500 group-hover:scale-110" />
-                Watch Our Story
-              </button>
-            </div>
+            
 
             {/* Stats */}
             <div className="flex flex-wrap gap-8 pt-8 border-t border-white/20">

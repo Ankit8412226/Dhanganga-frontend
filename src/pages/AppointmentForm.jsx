@@ -96,7 +96,7 @@ const BookingModal = () => {
         {/* Get Start Button */}
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 transform hover:scale-105"
+          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 transform hover:scale-105"
         >
           Get Start
         </button>
