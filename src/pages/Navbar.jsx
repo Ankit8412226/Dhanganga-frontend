@@ -62,7 +62,7 @@ const Navbar = () => {
       }`}
     >
       {/* Elegant top accent line */}
-      <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/60 via-blue-500/80 to-purple-400/60">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400/60 via-blue-500/80 to-purple-400/60">
         <div className="h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-pulse"></div>
       </div>
 
@@ -75,9 +75,9 @@ const Navbar = () => {
               <div className="relative hover-lift">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-blue-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                 <img
-                  src="https://nayesochnayakadam.com/assets/images/logo/logo-dark.webp"
+                  src="dhanganga.jpg"
                   alt="DhanGanga"
-                  className="h-12 sm:h-16 w-auto object-contain relative z-10 drop-shadow-sm group-hover:drop-shadow-lg transition-all duration-300"
+                  className="h-30 w-auto object-contain relative z-10 drop-shadow-sm group-hover:drop-shadow-lg transition-all duration-300"
                 />
                 <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-blue-400 animate-bounce-soft opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>

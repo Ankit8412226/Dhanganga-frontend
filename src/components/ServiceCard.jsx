@@ -50,7 +50,7 @@ const ServiceCard = ({ title, description, icon, link, category }) => {
             </a>
 
             {/* External link icon */}
-            <div className="w-8 h-8 bg-slate-100/80 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300 opacity-0 group-hover:opacity-100">
+            <div className="w-8 h-8 bg-slate-100/80 cursor-pointer rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300 opacity-0 group-hover:opacity-100">
               <ExternalLink className="w-4 h-4 text-slate-600 group-hover:text-blue-600 transition-colors duration-300" />
             </div>
           </div>

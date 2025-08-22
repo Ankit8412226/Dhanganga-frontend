@@ -139,7 +139,7 @@ const Information = () => {
             {/* Right side - Enhanced buttons */}
             <div className="lg:w-1/2 flex flex-col sm:flex-row gap-6 justify-center lg:justify-end">
               {/* Primary CTA Button */}
-              <button className="group relative overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-4 px-10 rounded-2xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-500">
+              <button className="group relative cursor-pointer overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-4 px-10 rounded-2xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-500">
                 {/* Animated shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
 
@@ -150,7 +150,7 @@ const Information = () => {
               </button>
 
               {/* Secondary CTA Button */}
-              <button className="group relative overflow-hidden bg-white/10 backdrop-blur-sm border-2 border-blue-200/50 text-slate-700 hover:text-blue-600 font-bold py-4 px-10 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-500 hover:border-blue-400/50 hover:bg-white/90">
+              <button className="group relative cursor-pointer overflow-hidden bg-white/10 backdrop-blur-sm border-2 border-blue-200/50 text-slate-700 hover:text-blue-600 font-bold py-4 px-10 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-500 hover:border-blue-400/50 hover:bg-white/90">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <span className="relative flex items-center justify-center gap-3">
@@ -232,7 +232,7 @@ const Information = () => {
             <p className="text-slate-300 mb-6 text-lg">
               Ready to become part of our success story?
             </p>
-            <button className="bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <button className="bg-white cursor-pointer text-blue-600 font-bold px-8 py-4 rounded-xl hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
               Start Your Journey
             </button>
           </div>

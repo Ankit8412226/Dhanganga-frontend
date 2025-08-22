@@ -185,7 +185,7 @@ const Discover = () => {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`relative overflow-hidden px-8 py-4 text-lg font-bold rounded-2xl transition-all duration-500 hover-lift ${
+              className={`relative overflow-hidden cursor-pointer px-8 py-4 text-lg font-bold rounded-2xl transition-all duration-500 hover-lift ${
                 activeTab === tab
                   ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-xl shadow-blue-500/25"
                   : "glass-card text-slate-700 hover:bg-blue-50"

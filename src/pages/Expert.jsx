@@ -18,7 +18,7 @@ const Experts = () => {
       name: "Dr. Pawan Pyara",
       role: "Founder & CEO",
       specialization: "Healthcare Leadership",
-      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=face",
+      image: "pawan.jpg",
       experience: "15+ Years",
       social: {
         facebook: "#",
@@ -32,7 +32,7 @@ const Experts = () => {
       name: "Mrs. Khushi Rani",
       role: "Co-Founder & COO",
       specialization: "Operations Management",
-      image: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=400&h=500&fit=crop&crop=face",
+      image: "khushi.jpg",
       experience: "12+ Years",
       social: {
         facebook: "#",
@@ -46,7 +46,7 @@ const Experts = () => {
       name: "Dr. Ravi Kumar",
       role: "Co-Founder & CTO",
       specialization: "Medical Technology",
-      image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=500&fit=crop&crop=face",
+      image: "ravi.jpg",
       experience: "14+ Years",
       social: {
         facebook: "#",
@@ -60,7 +60,7 @@ const Experts = () => {
       name: "Mr. Prabhakar Bharti",
       role: "Planning Manager",
       specialization: "Strategic Planning",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face",
+      image: "prabhakar.jpg",
       experience: "10+ Years",
       social: {
         facebook: "#",
@@ -74,7 +74,7 @@ const Experts = () => {
       name: "Mr. Aman Kumar",
       role: "Marketing Manager",
       specialization: "Digital Marketing",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
+      image: "aman.jpg",
       experience: "8+ Years",
       social: {
         facebook: "#",
@@ -88,7 +88,7 @@ const Experts = () => {
       name: "Mr. Shyam Kishor Das",
       role: "Legal Advisor",
       specialization: "Advocate - Patna High Court",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face",
+      image: "shyam.jpg",
       experience: "20+ Years",
       social: {
         facebook: "#",
@@ -102,7 +102,7 @@ const Experts = () => {
       name: "Mrs. Dipa Kumari",
       role: "Marketing Manager",
       specialization: "Brand Development",
-      image: "https://images.unsplash.com/photo-1494790108755-2616c2d9f12b?w=400&h=500&fit=crop&crop=face",
+      image: "deepa.jpg",
       experience: "7+ Years",
       social: {
         facebook: "#",
@@ -116,7 +116,7 @@ const Experts = () => {
       name: "Miss. Neha Kumari",
       role: "Public Relations Officer",
       specialization: "Community Relations",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=face",
+      image: "neha.jpg",
       experience: "5+ Years",
       social: {
         facebook: "#",
@@ -255,11 +255,11 @@ const Experts = () => {
 
                   {/* Contact actions */}
                   <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="flex-1 bg-blue-50 hover:bg-blue-100 text-blue-600 py-2 px-3 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center justify-center gap-1">
+                    <button className="flex-1 cursor-pointer bg-blue-50 hover:bg-blue-100 text-blue-600 py-2 px-3 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center justify-center gap-1">
                       <Mail className="w-3 h-3" />
                       Email
                     </button>
-                    <button className="flex-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-600 py-2 px-3 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center justify-center gap-1">
+                    <button className="flex-1 cursor-pointer bg-emerald-50 hover:bg-emerald-100 text-emerald-600 py-2 px-3 rounded-lg text-xs font-medium transition-colors duration-200 flex items-center justify-center gap-1">
                       <Phone className="w-3 h-3" />
                       Call
                     </button>

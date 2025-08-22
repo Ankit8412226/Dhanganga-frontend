@@ -123,7 +123,7 @@ const Hero = () => {
                 className="group relative overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-2xl shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-400 border-2 border-blue-400/50 hover:border-blue-300"
               >
                 {/* Animated background shine effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                <div className="absolute inset-0  bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                 <div className="relative flex items-center justify-center gap-3">
                   <Calendar className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform duration-300" />
                   Book Appointment Now
@@ -133,7 +133,7 @@ const Hero = () => {
 
               {/* Secondary Button - White with dark text for contrast */}
               <button className="group relative overflow-hidden bg-white text-slate-700 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-2xl shadow-2xl shadow-black/20 hover:shadow-black/30 hover:scale-105 transition-all duration-400 border-2 border-white/80 hover:border-white hover:bg-gray-50">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                <div className="absolute cursor-pointer inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                 <div className="relative flex items-center justify-center gap-3">
                   <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
                   Watch Our Story

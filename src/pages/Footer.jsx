@@ -17,9 +17,9 @@ const Footer = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="group">
                 <img
-                  src="https://nayesochnayakadam.com/assets/images/logo/dark-logo-160x48.webp"
+                  src="dhanganga.jpg"
                   alt="Dhanganga"
-                  className="w-[160px] brightness-0 invert group-hover:scale-105 transition-transform duration-300"
+                  className="w-[140px] group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
