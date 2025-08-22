@@ -58,7 +58,7 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-700 ${
         isScrolled
           ? "glass-effect shadow-2xl shadow-slate-200/30"
-          : "bg-white/95 backdrop-blur-md shadow-xl shadow-slate-100/40"
+          : "bg-gray-200 backdrop-blur-md shadow-xl shadow-slate-100/40"
       }`}
     >
       {/* Elegant top accent line */}

@@ -4,7 +4,7 @@ import {
   Phone,
   Sparkles,
   Star,
-  Users
+  Users,
 } from "lucide-react";
 import ServiceCard from "../components/ServiceCard";
 
@@ -112,7 +112,9 @@ const Service = () => {
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div className="inline-flex items-center bg-blue-50/80 backdrop-blur-sm border border-blue-200/50 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
             <Sparkles className="w-4 h-4 text-blue-600 mr-2" />
-            <span className="text-sm font-semibold text-blue-700">Comprehensive Solutions</span>
+            <span className="text-sm font-semibold text-blue-700">
+              Comprehensive Solutions
+            </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-800 mb-4 sm:mb-6 leading-tight">
@@ -136,8 +138,12 @@ const Service = () => {
                   <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-800">{stat.number}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-800">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-gray-600 font-medium">
+                    {stat.label}
+                  </div>
                 </div>
               </div>
             ))}
@@ -145,7 +151,7 @@ const Service = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {services.map((service, index) => (
             <div
               key={service.id}
@@ -172,7 +178,8 @@ const Service = () => {
                   Ready to Get Started?
                 </h3>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Let's discuss how our services can help transform your business and achieve your goals.
+                  Let's discuss how our services can help transform your
+                  business and achieve your goals.
                 </p>
               </div>
 
