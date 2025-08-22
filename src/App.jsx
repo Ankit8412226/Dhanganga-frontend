@@ -1,4 +1,3 @@
-import BookingModal from "./pages/AppointmentForm";
 import Discover from "./pages/Discover";
 import Experts from "./pages/Expert";
 import Footer from "./pages/Footer";
@@ -9,14 +8,30 @@ import Service from "./pages/Services";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="relative">
+      {/* Fixed Navbar */}
       <Navbar />
-      <Hero />
-      <Service/>
-      <Discover/>
-      <Experts/>
-      <Information/>
-      <Footer/>
+
+      {/* Main Content Container with top padding to account for fixed navbar */}
+      <main className="pt-32 sm:pt-36 lg:pt-40">
+        {/* Hero Section */}
+        <Hero />
+
+        {/* Services Section */}
+        <Service />
+
+        {/* Discover Section */}
+        <Discover />
+
+        {/* Experts Section */}
+        <Experts />
+
+        {/* Information Section */}
+        <Information />
+      </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
