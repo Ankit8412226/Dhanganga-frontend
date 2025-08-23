@@ -1,38 +1,44 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Discover from "./pages/Discover";
 import Experts from "./pages/Expert";
 import Footer from "./pages/Footer";
 import Hero from "./pages/Hero";
 import Information from "./pages/Information";
 import Navbar from "./pages/Navbar";
+import NetralayPage from "./pages/Netralay";
 import Service from "./pages/Services";
 
 function App() {
   return (
-    <div className="relative">
-      {/* Fixed Navbar */}
-      <Navbar />
+    <Router>
+      <div className="relative">
+        {/* Navbar fixed top */}
+        <Navbar />
 
-      {/* Main Content Container with top padding to account for fixed navbar */}
-      <main className="pt-32 sm:pt-36 lg:pt-40">
-        {/* Hero Section */}
-        <Hero />
+        {/* Routes */}
+        <Routes>
+          {/* Home Page */}
+          <Route
+            path="/"
+            element={
+              <main className="pt-32 sm:pt-36 lg:pt-40">
+                <Hero />
+                <Service />
+                <Discover />
+                <Experts />
+                <Information />
+              </main>
+            }
+          />
 
-        {/* Services Section */}
-        <Service />
+          {/* Netralay Page */}
+          <Route path="/netralay" element={<NetralayPage />} />
+        </Routes>
 
-        {/* Discover Section */}
-        <Discover />
-
-        {/* Experts Section */}
-        <Experts />
-
-        {/* Information Section */}
-        <Information />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Footer (common on all pages) */}
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
