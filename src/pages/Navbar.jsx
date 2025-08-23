@@ -23,12 +23,12 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Netralay", href: "/netralay" },
-    { name: "About", href: "#" },
+    { name: "About", href: "/about" },
     { name: "Services", href: "#", hasDropdown: true },
-    { name: "Appointment", href: "#booking-section" },
-    { name: "Join Us", href: "#" },
-    { name: "News", href: "#" },
-    { name: "Offer", href: "#" },
+    { name: "Appointment", href: "/appoinment" },
+    { name: "Join Us", href: "/join-us" },
+    { name: "News", href: "/news" },
+    { name: "Offer", href: "/offer" },
     { name: "Contact", href: "#" },
   ];
 

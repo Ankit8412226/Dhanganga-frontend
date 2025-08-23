@@ -7,6 +7,10 @@ import Information from "./pages/Information";
 import Navbar from "./pages/Navbar";
 import NetralayPage from "./pages/Netralay";
 import Service from "./pages/Services";
+import About from "./pages/About";
+import JoinUs from "./pages/JoinUs";
+import News from "./pages/News";
+import Offer from "./pages/Offer"; // 
 
 function App() {
   return (
@@ -15,25 +19,42 @@ function App() {
         {/* Navbar fixed top */}
         <Navbar />
 
-        {/* Routes */}
-        <Routes>
-          {/* Home Page */}
-          <Route
-            path="/"
-            element={
-              <main className="pt-32 sm:pt-36 lg:pt-40">
-                <Hero />
-                <Service />
-                <Discover />
-                <Experts />
-                <Information />
-              </main>
-            }
-          />
+        {/* Page wrapper with top padding for fixed Navbar */}
+        <main className="pt-32 sm:pt-36 lg:pt-40">
+          <Routes>
+            {/* Home Page */}
+            <Route
+              path="/"
+              element={
+                <>
+                  <Hero />
+                  <Service />
+                  <Discover />
+                  <Experts />
+                  <Information />
+                </>
+              }
+            />
 
-          {/* Netralay Page */}
-          <Route path="/netralay" element={<NetralayPage />} />
-        </Routes>
+            {/* Netralay Page */}
+            <Route path="/netralay" element={<NetralayPage />} />
+
+            {/* About Page */}
+            <Route path="/about" element={<About />} />
+
+            {/* Join Us / Membership Page */}
+            <Route path="/join-us" element={<JoinUs />} />
+
+            {/* Appointment Page */}
+            <Route path="/appoinment" element={<Hero />} />
+
+            {/* News Page */}
+            <Route path="/news" element={<News />} />
+
+            {/* Offer Page */}
+            <Route path="/offer" element={<Offer />} />
+          </Routes>
+        </main>
 
         {/* Footer (common on all pages) */}
         <Footer />

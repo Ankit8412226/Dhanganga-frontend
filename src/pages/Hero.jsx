@@ -27,7 +27,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden mt-4">
+    <section className="relative min-h-screen flex items-center overflow-hidden ">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full relative">

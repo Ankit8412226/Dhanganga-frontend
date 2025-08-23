@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
+import Experts from "./Expert.jsx";
+import LeaderCard from "../components/LeaderCard.jsx";
+import InformationCard from "../components/InformationCard.jsx";
 
 const NetralayPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
-      <Navbar />
-
       {/* Hero Section */}
       <section className="relative grid md:grid-cols-2 gap-12 h-[950px] px-10 py-20 items-center bg-gradient-to-r from-blue-50 via-white to-purple-50">
         <div className="space-y-6">
@@ -140,6 +141,8 @@ const NetralayPage = () => {
       {/* Appointment Section */}
       {/* Book Appointment Section */}
       {/* Book Appointment Section */}
+      {/* Appointment Section */}
+      {/* Appointment Section */}
       <section className="relative py-20 px-6 bg-gradient-to-br from-blue-300 via-white to-purple-300">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left content */}
@@ -151,13 +154,41 @@ const NetralayPage = () => {
               Book Your <span className="text-blue-600">Appointment</span>
             </h3>
             <p className="text-gray-600 mb-8">
-              Schedule your consultation with our expert doctors today. Get
-              personalized care and treatment at the best facility in the
-              region.
+              Reach out to the Indo-Nepal's most reliable Ophthalmologists and
+              ENT services. Fill in the form to confirm your visit today.
             </p>
 
+            {/* Contact Info */}
+            <div className="space-y-6 mb-10">
+              <div className="flex items-center gap-4">
+                <span className="text-blue-600 text-2xl">📞</span>
+                <div>
+                  <p className="text-gray-500 text-sm uppercase tracking-wider">
+                    Call For Advice Now!
+                  </p>
+                  <p className="text-xl font-semibold text-blue-700">
+                    (+91) 9955299280
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <span className="text-purple-600 text-2xl">📧</span>
+                <div>
+                  <p className="text-gray-500 text-sm uppercase tracking-wider">
+                    Say Hello
+                  </p>
+                  <p className="text-xl font-semibold text-purple-700">
+                    netralaybgp@gmail.com
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Appointment Image */}
-            <div className="relative">
+            <div className="relative -mt-6">
+              {" "}
+              {/* moved slightly up with -mt-6 */}
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
                 alt="Appointment illustration"
@@ -170,49 +201,212 @@ const NetralayPage = () => {
           {/* Right - Appointment Form */}
           <div className="bg-white shadow-xl rounded-2xl p-10 border hover:shadow-2xl hover:scale-[1.02] transform transition-all duration-500">
             <form className="space-y-6">
+              {/* Reference Code */}
               <div>
                 <label className="block text-left text-gray-700 mb-2">
-                  Full Name
+                  Reference Code
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder="Enter Reference Code"
                   className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
+              {/* Patient Name */}
               <div>
                 <label className="block text-left text-gray-700 mb-2">
-                  Email Address
+                  Patient's Name *
                 </label>
                 <input
-                  type="email"
-                  placeholder="Enter your email"
+                  type="text"
+                  required
+                  placeholder="Enter patient's name"
                   className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
+              {/* Gender */}
               <div>
                 <label className="block text-left text-gray-700 mb-2">
-                  Phone Number
+                  Gender *
                 </label>
-                <input
-                  type="tel"
-                  placeholder="+91 XXXXX XXXXX"
-                  className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
-                />
+                <div className="flex gap-6">
+                  <label>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="Male"
+                      className="mr-2"
+                    />{" "}
+                    Male
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="Female"
+                      className="mr-2"
+                    />{" "}
+                    Female
+                  </label>
+                </div>
               </div>
 
+              {/* Age */}
               <div>
                 <label className="block text-left text-gray-700 mb-2">
-                  Select Date
+                  Age *
                 </label>
                 <input
-                  type="date"
+                  type="number"
+                  required
+                  placeholder="Enter age"
                   className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
               </div>
 
+              {/* Guardian Name */}
+              <div>
+                <label className="block text-left text-gray-700 mb-2">
+                  Guardian Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Enter guardian name"
+                  className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                />
+                <div className="flex gap-6 mt-2">
+                  <label>
+                    <input
+                      type="radio"
+                      name="guardianType"
+                      value="Father"
+                      className="mr-2"
+                    />{" "}
+                    Father’s Name
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="guardianType"
+                      value="Husband"
+                      className="mr-2"
+                    />{" "}
+                    Husband’s Name
+                  </label>
+                  <label>
+                    <input
+                      type="radio"
+                      name="guardianType"
+                      value="Son"
+                      className="mr-2"
+                    />{" "}
+                    Son’s Name
+                  </label>
+                </div>
+              </div>
+
+              {/* Attendant Name & Mobile */}
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-left text-gray-700 mb-2">
+                    Attendant Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Enter attendant name"
+                    className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-left text-gray-700 mb-2">
+                    Mobile *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="+91 XXXXX XXXXX"
+                    className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Full Address */}
+              <div>
+                <label className="block text-left text-gray-700 mb-2">
+                  Full Address *
+                </label>
+                <textarea
+                  required
+                  placeholder="Enter full address"
+                  className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                />
+              </div>
+
+              {/* Purpose of Visit */}
+              <div>
+                <label className="block text-left text-gray-700 mb-2">
+                  Purpose of Visit *
+                </label>
+                <div className="space-y-2">
+                  <label>
+                    <input
+                      type="radio"
+                      name="purpose"
+                      value="EyeCheckup"
+                      className="mr-2"
+                    />{" "}
+                    केवल आँख जाँच (Eye Checkup)
+                  </label>
+                  <br />
+                  <label>
+                    <input
+                      type="radio"
+                      name="purpose"
+                      value="EarCheckup"
+                      className="mr-2"
+                    />{" "}
+                    केवल कान जाँच (Ear Checkup)
+                  </label>
+                  <br />
+                  <label>
+                    <input
+                      type="radio"
+                      name="purpose"
+                      value="EyeEarCheckup"
+                      className="mr-2"
+                    />{" "}
+                    आँख और कान जाँच (Eye + Ear Checkup)
+                  </label>
+                  <br />
+                  <label>
+                    <input
+                      type="radio"
+                      name="purpose"
+                      value="Cataract"
+                      className="mr-2"
+                    />{" "}
+                    मोतियाबिंद ऑपरेशन (Cataract Surgery)
+                  </label>
+                </div>
+              </div>
+
+              {/* Notes */}
+              <div>
+                <label className="block text-left text-gray-700 mb-2">
+                  Other Notes
+                </label>
+                <input
+                  type="text"
+                  placeholder="अत्र बातों का उल्लेख करें"
+                  className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                />
+              </div>
+
+              {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-xl font-semibold shadow hover:shadow-lg hover:scale-105 transition-all"
