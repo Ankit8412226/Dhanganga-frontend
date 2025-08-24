@@ -10,7 +10,9 @@ import Service from "./pages/Services";
 import About from "./pages/About";
 import JoinUs from "./pages/JoinUs";
 import News from "./pages/News";
-import Offer from "./pages/Offer"; // 
+import Offer from "./pages/Offer";
+import Contact from "./pages/Contact"; 
+import MainService from "./pages/MainServices";
 
 function App() {
   return (
@@ -35,24 +37,22 @@ function App() {
                 </>
               }
             />
-
             {/* Netralay Page */}
             <Route path="/netralay" element={<NetralayPage />} />
-
             {/* About Page */}
             <Route path="/about" element={<About />} />
-
             {/* Join Us / Membership Page */}
             <Route path="/join-us" element={<JoinUs />} />
-
             {/* Appointment Page */}
             <Route path="/appoinment" element={<Hero />} />
-
             {/* News Page */}
             <Route path="/news" element={<News />} />
-
             {/* Offer Page */}
             <Route path="/offer" element={<Offer />} />
+            {/* Contact Page */}
+            <Route path="/contact" element={<Contact />} /> 
+            {/* Main Service page */}
+            <Route path="/MainService" element={<MainService/>} />
           </Routes>
         </main>
 

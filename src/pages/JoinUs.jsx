@@ -92,7 +92,7 @@ const JoinUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white py-16 px-4 sm:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-white py-16 px-4 sm:px-8 pt-40">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
           {/* Header */}
@@ -277,7 +277,7 @@ const JoinUs = () => {
                     </h4>
                     <p className="text-sm text-gray-600">
                       For any queries or assistance, reach out to us during
-                      business hours. We’re happy to help.
+                      business hours. We're happy to help.
                     </p>
                   </div>
                 </div>
@@ -289,9 +289,8 @@ const JoinUs = () => {
 
       {/* Extra Info Section */}
       <div className="mt-4">
-           <InformationCard />
+        <InformationCard />
       </div>
-     
     </div>
   );
 };

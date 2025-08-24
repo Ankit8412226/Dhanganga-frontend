@@ -9,72 +9,72 @@ const NetralayPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
       {/* Hero Section */}
-      <section className="relative grid md:grid-cols-2 gap-12 h-[950px] px-10 py-20 items-center bg-gradient-to-r from-blue-50 via-white to-purple-50">
-        <div className="space-y-6">
+      <section className="relative grid grid-cols-1 md:grid-cols-2 gap-12 min-h-[650px] md:min-h-[850px] lg:min-h-[950px] px-4 sm:px-6 md:px-10 lg:px-20 py-12 sm:py-16 lg:py-20 items-center bg-gradient-to-r from-blue-50 via-white to-purple-50">
+        <div className="space-y-6 text-center md:text-left">
           <p className="text-blue-600 font-semibold tracking-widest uppercase animate-pulse">
             Netralay
           </p>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-snug">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-gray-900 leading-snug">
             Netralay <br />
             <span className="text-blue-700">20+ Years</span> of Trusted
             <span className="text-purple-600"> Care</span>
           </h1>
-          <p className="text-lg text-gray-600 mt-4">
+          <p className="text-base sm:text-lg text-gray-600 mt-4">
             Your reliable partner for <strong>eye & ear care</strong> services
             across the Indo-Nepal region.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 mt-8">
-            <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-500">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8">
+            <button className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-500">
               Talk to a Consultant
             </button>
-            <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-4 px-10 rounded-full transition-all duration-500 shadow-md hover:shadow-lg hover:scale-105">
+            <button className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-4 px-10 rounded-full transition-all duration-500 shadow-md hover:shadow-lg hover:scale-105">
               Contact Us Now
             </button>
           </div>
         </div>
 
         {/* Images */}
-        <div className="flex gap-6 justify-center">
+        <div className="flex gap-4 sm:gap-6 justify-center flex-wrap">
           <img
             src="/image1.jpeg"
             alt="Doctor working"
-            className="rounded-2xl shadow-2xl w-72 transform hover:scale-105 transition duration-500"
+            className="rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-sm transform hover:scale-105 transition duration-500"
           />
-          <div className="flex flex-col justify-between gap-6">
+          <div className="flex flex-col justify-between gap-4 sm:gap-6">
             <img
               src="/image2.jpeg"
               alt="Doctor treating patient"
-              className="rounded-xl shadow-xl w-56 hover:scale-105 transition duration-500"
+              className="rounded-xl shadow-xl w-full max-w-[200px] sm:max-w-[240px] hover:scale-105 transition duration-500"
             />
             <img
               src="/image3.jpeg"
               alt="Treatment"
-              className="rounded-xl shadow-xl w-56 hover:scale-105 transition duration-500"
+              className="rounded-xl shadow-xl w-full max-w-[200px] sm:max-w-[240px] hover:scale-105 transition duration-500"
             />
           </div>
         </div>
       </section>
 
       {/* Notice Section */}
-      <section className="flex justify-center px-8 py-16">
+      <section className="flex justify-center px-4 sm:px-6 md:px-8 py-12 sm:py-16">
         <img
           src="description.jpg"
           alt="Notice"
-          className="rounded-2xl shadow-lg max-w-4xl hover:scale-105 transition duration-500"
+          className="rounded-2xl shadow-lg w-full max-w-4xl hover:scale-105 transition duration-500"
         />
       </section>
 
       {/* Services Section */}
-      <section className="px-8 py-20 text-center bg-white">
+      <section className="px-4 sm:px-6 md:px-8 lg:px-20 py-16 sm:py-20 text-center bg-white">
         <h2 className="text-blue-500 uppercase tracking-widest font-semibold">
           Services
         </h2>
-        <h3 className="text-4xl font-bold mb-14">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-14">
           We provide <span className="text-blue-700">Various Services.</span>
         </h3>
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
           {[
             {
               title: "Lahan Best Ophthalmologists",
@@ -91,12 +91,14 @@ const NetralayPage = () => {
           ].map((service, idx) => (
             <div
               key={idx}
-              className="p-8 bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-2xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+              className="p-6 sm:p-8 bg-gradient-to-br from-white to-blue-50 shadow-lg rounded-2xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
             >
-              <h4 className="text-xl font-semibold text-gray-900">
+              <h4 className="text-lg sm:text-xl font-semibold text-gray-900">
                 {service.title}
               </h4>
-              <p className="text-gray-600 mt-3">{service.desc}</p>
+              <p className="text-gray-600 mt-3 text-sm sm:text-base">
+                {service.desc}
+              </p>
               <a
                 href="#"
                 className="text-blue-600 mt-4 inline-block font-medium hover:text-blue-800"
@@ -109,28 +111,28 @@ const NetralayPage = () => {
       </section>
 
       {/* How It Works */}
-      <section className="px-8 py-20 bg-gradient-to-r from-gray-50 via-white to-gray-100">
+      <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-16 sm:py-20 bg-gradient-to-r from-gray-50 via-white to-gray-100">
         <h2 className="text-blue-500 uppercase tracking-widest font-semibold">
           How We Work
         </h2>
-        <h3 className="text-4xl font-bold mb-14">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-14">
           How it helps <span className="text-blue-700">you</span>
         </h3>
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-500">
-            <h4 className="text-2xl font-semibold text-blue-700">
+            <h4 className="text-xl sm:text-2xl font-semibold text-blue-700">
               01. Discussion
             </h4>
-            <p className="text-gray-600 mt-3">
+            <p className="text-gray-600 mt-3 text-sm sm:text-base">
               Call and report your problem and book your appointment on the
               phone.
             </p>
           </div>
           <div className="p-6 bg-white shadow-md rounded-xl hover:shadow-xl transition-all duration-500">
-            <h4 className="text-2xl font-semibold text-blue-700">
+            <h4 className="text-xl sm:text-2xl font-semibold text-blue-700">
               02. Concepts & Initiatives
             </h4>
-            <p className="text-gray-600 mt-3">
+            <p className="text-gray-600 mt-3 text-sm sm:text-base">
               Another easy way is that you can book your appointment through our
               website.
             </p>
@@ -139,21 +141,17 @@ const NetralayPage = () => {
       </section>
 
       {/* Appointment Section */}
-      {/* Book Appointment Section */}
-      {/* Book Appointment Section */}
-      {/* Appointment Section */}
-      {/* Appointment Section */}
-      <section className="relative py-20 px-6 bg-gradient-to-br from-blue-300 via-white to-purple-300">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 md:px-10 lg:px-20 bg-gradient-to-br from-blue-300 via-white to-purple-300">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 items-center">
           {/* Left content */}
           <div>
             <h2 className="text-gray-400 uppercase tracking-wider">
               Appointment
             </h2>
-            <h3 className="text-4xl font-bold mb-6">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">
               Book Your <span className="text-blue-600">Appointment</span>
             </h3>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 mb-8 text-sm sm:text-base">
               Reach out to the Indo-Nepal's most reliable Ophthalmologists and
               ENT services. Fill in the form to confirm your visit today.
             </p>
@@ -163,10 +161,10 @@ const NetralayPage = () => {
               <div className="flex items-center gap-4">
                 <span className="text-blue-600 text-2xl">📞</span>
                 <div>
-                  <p className="text-gray-500 text-sm uppercase tracking-wider">
+                  <p className="text-gray-500 text-xs sm:text-sm uppercase tracking-wider">
                     Call For Advice Now!
                   </p>
-                  <p className="text-xl font-semibold text-blue-700">
+                  <p className="text-lg sm:text-xl font-semibold text-blue-700">
                     (+91) 9955299280
                   </p>
                 </div>
@@ -175,10 +173,10 @@ const NetralayPage = () => {
               <div className="flex items-center gap-4">
                 <span className="text-purple-600 text-2xl">📧</span>
                 <div>
-                  <p className="text-gray-500 text-sm uppercase tracking-wider">
+                  <p className="text-gray-500 text-xs sm:text-sm uppercase tracking-wider">
                     Say Hello
                   </p>
-                  <p className="text-xl font-semibold text-purple-700">
+                  <p className="text-lg sm:text-xl font-semibold text-purple-700 break-all">
                     netralaybgp@gmail.com
                   </p>
                 </div>
@@ -187,19 +185,17 @@ const NetralayPage = () => {
 
             {/* Appointment Image */}
             <div className="relative -mt-6">
-              {" "}
-              {/* moved slightly up with -mt-6 */}
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"
                 alt="Appointment illustration"
-                className="rounded-2xl shadow-xl w-full max-w-md"
+                className="rounded-2xl shadow-xl w-full max-w-md mx-auto md:mx-0"
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10"></div>
             </div>
           </div>
 
           {/* Right - Appointment Form */}
-          <div className="bg-white shadow-xl rounded-2xl p-10 border hover:shadow-2xl hover:scale-[1.02] transform transition-all duration-500">
+          <div className="bg-white shadow-xl rounded-2xl p-6 sm:p-10 border hover:shadow-2xl hover:scale-[1.02] transform transition-all duration-500">
             <form className="space-y-6">
               {/* Reference Code */}
               <div>
@@ -231,7 +227,7 @@ const NetralayPage = () => {
                 <label className="block text-left text-gray-700 mb-2">
                   Gender *
                 </label>
-                <div className="flex gap-6">
+                <div className="flex gap-6 flex-wrap">
                   <label>
                     <input
                       type="radio"
@@ -277,7 +273,7 @@ const NetralayPage = () => {
                   placeholder="Enter guardian name"
                   className="w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                 />
-                <div className="flex gap-6 mt-2">
+                <div className="flex gap-4 sm:gap-6 flex-wrap mt-2">
                   <label>
                     <input
                       type="radio"
@@ -309,7 +305,7 @@ const NetralayPage = () => {
               </div>
 
               {/* Attendant Name & Mobile */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-left text-gray-700 mb-2">
                     Attendant Name *
@@ -351,7 +347,7 @@ const NetralayPage = () => {
                 <label className="block text-left text-gray-700 mb-2">
                   Purpose of Visit *
                 </label>
-                <div className="space-y-2">
+                <div className="space-y-2 text-sm sm:text-base">
                   <label>
                     <input
                       type="radio"
