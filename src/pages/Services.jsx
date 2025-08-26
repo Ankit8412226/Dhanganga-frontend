@@ -65,7 +65,7 @@ const Service = () => {
       title: "Dhanganga Hire Vehicle",
       description: "Vehicle rental solutions for all your needs.",
       icon: "🚗",
-      link: "#",
+      link: "/discover-Vehicle",
       category: "Transportation",
     },
     {
@@ -73,7 +73,7 @@ const Service = () => {
       title: "Naye Soch Naya Kadam",
       description: "Innovative solutions for a brighter tomorrow.",
       icon: "💡",
-      link: "#",
+      link: "/discover-NayeSoch",
       category: "Innovation",
     },
     {
@@ -81,7 +81,7 @@ const Service = () => {
       title: "Netralay",
       description: "Eye care and vision wellness at its best.",
       icon: "👁️",
-      link: "#",
+      link: "/discover-Netralay",
       category: "Healthcare",
     },
     {
@@ -89,7 +89,7 @@ const Service = () => {
       title: "Dhanganga Mystics Healing",
       description: "Spiritual & holistic healing practices.",
       icon: "✨",
-      link: "#",
+      link: "/discover-Healing",
       category: "Wellness",
     },
   ];

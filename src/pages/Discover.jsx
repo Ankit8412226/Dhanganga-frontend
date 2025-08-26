@@ -121,7 +121,7 @@ const Discover = () => {
       description:
         "Reliable vehicle rental solutions for all transportation needs.",
       icon: "🚗",
-      link: "#",
+      link: "/discover-Vehicle",
     },
     {
       id: 8,
@@ -129,7 +129,7 @@ const Discover = () => {
       description:
         "Innovative healthcare solutions for a healthier, brighter tomorrow.",
       icon: "💡",
-      link: "#",
+      link: "/discover-NayeSoch",
     },
     {
       id: 9,
@@ -137,7 +137,7 @@ const Discover = () => {
       description:
         "Comprehensive eye care and advanced vision wellness services.",
       icon: "👁️",
-      link: "#",
+      link: "/discover-Netralay",
     },
     {
       id: 10,
@@ -145,7 +145,7 @@ const Discover = () => {
       description:
         "Spiritual wellness and holistic healing practices for mind-body harmony.",
       icon: "✨",
-      link: "#",
+      link: "/discover-Healing",
     },
   ];
 
