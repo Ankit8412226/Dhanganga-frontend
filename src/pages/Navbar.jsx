@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Netralay", href: "/netralay" },
+    // { name: "Netralay", href: "/netralay" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/MainService", hasDropdown: false },
     { name: "Appointment", href: "/appoinment" },

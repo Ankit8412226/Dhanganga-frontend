@@ -7,15 +7,17 @@ import {
   Users,
 } from "lucide-react";
 import ServiceCard from "../components/ServiceCard";
+import { useNavigate } from "react-router-dom";
 
 const Service = () => {
+  const navigate = useNavigate();
   const services = [
     {
       id: 1,
       title: "Dhanganga Online Public Kendra",
       description: "Responsive and functional IT design worldwide.",
       icon: "💻",
-      link: "#",
+      link: "/discover-Public-Kendra",
       category: "Digital Services",
     },
     {
@@ -23,7 +25,7 @@ const Service = () => {
       title: "Dhanganga Associate",
       description: "Delivering professional IT services and solutions.",
       icon: "⚖️",
-      link: "#",
+      link: "/discover-Association",
       category: "Professional Services",
     },
     {
@@ -31,7 +33,7 @@ const Service = () => {
       title: "Dhanganga Physical Treatment Home",
       description: "Modern approach to physical wellness & care.",
       icon: "🏥",
-      link: "#",
+      link: "/disocver-Physical",
       category: "Healthcare",
     },
     {
@@ -39,7 +41,7 @@ const Service = () => {
       title: "Dhanganga Store",
       description: "Your trusted source for products & services.",
       icon: "🏪",
-      link: "#",
+      link: "/discover-Store",
       category: "Retail",
     },
     {
@@ -47,7 +49,7 @@ const Service = () => {
       title: "Dhanganga Real Estate",
       description: "Helping you find your dream properties.",
       icon: "🏢",
-      link: "#",
+      link: "/discover-RealEstate",
       category: "Real Estate",
     },
     {
@@ -55,7 +57,7 @@ const Service = () => {
       title: "Dhanganga Hire Services",
       description: "Providing on-demand professional services.",
       icon: "🔧",
-      link: "#",
+      link: "/discover-Hire",
       category: "Professional Services",
     },
     {
@@ -191,7 +193,12 @@ const Service = () => {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
 
-                <button className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift">
+                <button
+                  onClick={() => {
+                    navigate("/contact");
+                  }}
+                  className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
+                >
                   <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   Contact Us Now
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

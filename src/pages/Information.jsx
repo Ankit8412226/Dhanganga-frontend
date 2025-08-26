@@ -1,5 +1,13 @@
-import { Award, Briefcase, Info, MessageCircle, TrendingUp, Users } from "lucide-react";
+import {
+  Award,
+  Briefcase,
+  Info,
+  MessageCircle,
+  TrendingUp,
+  Users,
+} from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CountUpNumber = ({ end, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -17,7 +25,9 @@ const CountUpNumber = ({ end, duration = 2000, suffix = "" }) => {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const currentCount = Math.floor(startCount + (end - startCount) * easeOutQuart);
+            const currentCount = Math.floor(
+              startCount + (end - startCount) * easeOutQuart
+            );
 
             setCount(currentCount);
 
@@ -40,12 +50,14 @@ const CountUpNumber = ({ end, duration = 2000, suffix = "" }) => {
 
   return (
     <span id={`count-${end}`} className="tabular-nums">
-      {count}{suffix}
+      {count}
+      {suffix}
     </span>
   );
 };
 
 const Information = () => {
+  const navigate = useNavigate();
   const statistics = [
     {
       id: 1,
@@ -55,7 +67,7 @@ const Information = () => {
       icon: Users,
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-500/10",
-      description: "Satisfied customers worldwide"
+      description: "Satisfied customers worldwide",
     },
     {
       id: 2,
@@ -65,7 +77,7 @@ const Information = () => {
       icon: Briefcase,
       color: "from-emerald-500 to-emerald-600",
       bgColor: "bg-emerald-500/10",
-      description: "Successful deliveries"
+      description: "Successful deliveries",
     },
     {
       id: 3,
@@ -75,7 +87,7 @@ const Information = () => {
       icon: Award,
       color: "from-purple-500 to-purple-600",
       bgColor: "bg-purple-500/10",
-      description: "Professional team members"
+      description: "Professional team members",
     },
     {
       id: 4,
@@ -85,7 +97,7 @@ const Information = () => {
       icon: TrendingUp,
       color: "from-orange-500 to-orange-600",
       bgColor: "bg-orange-500/10",
-      description: "Content shared"
+      description: "Content shared",
     },
   ];
 
@@ -118,28 +130,36 @@ const Information = () => {
               </h1>
 
               <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl">
-                From healthcare to technology, we deliver comprehensive solutions
-                designed to exceed expectations and drive remarkable results.
+                From healthcare to technology, we deliver comprehensive
+                solutions designed to exceed expectations and drive remarkable
+                results.
               </p>
 
               {/* Feature highlights */}
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
-                {["24/7 Support", "Expert Team", "Proven Results"].map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-full px-4 py-2 text-sm font-medium text-slate-700"
-                  >
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    {feature}
-                  </div>
-                ))}
+                {["24/7 Support", "Expert Team", "Proven Results"].map(
+                  (feature, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-full px-4 py-2 text-sm font-medium text-slate-700"
+                    >
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                      {feature}
+                    </div>
+                  )
+                )}
               </div>
             </div>
 
             {/* Right side - Enhanced buttons */}
             <div className="lg:w-1/2 flex flex-col sm:flex-row gap-6 justify-center lg:justify-end">
               {/* Primary CTA Button */}
-              <button className="group relative cursor-pointer overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-4 px-10 rounded-2xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-500">
+              <button
+                onClick={() => {
+                  navigate("/contact");
+                }}
+                className="group relative cursor-pointer overflow-hidden bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-4 px-10 rounded-2xl shadow-2xl shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-500"
+              >
                 {/* Animated shine effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
 
@@ -150,10 +170,18 @@ const Information = () => {
               </button>
 
               {/* Secondary CTA Button */}
-              <button className="group relative cursor-pointer overflow-hidden bg-white/10 backdrop-blur-sm border-2 border-blue-200/50 text-slate-700 hover:text-blue-600 font-bold py-4 px-10 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-500 hover:border-blue-400/50 hover:bg-white/90">
+              <button
+                onClick={() => {
+                  navigate("/about");
+                }}
+                className="group relative cursor-pointer overflow-hidden bg-white/10 backdrop-blur-sm border-2 border-blue-200/50 text-slate-700 hover:text-blue-600 font-bold py-4 px-10 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-500 hover:border-blue-400/50 hover:bg-white/90"
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                <span className="relative flex items-center justify-center gap-3">
+                <span
+                  id="/about"
+                  className="relative flex items-center justify-center gap-3"
+                >
                   <Info className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   Get Info
                 </span>
@@ -176,10 +204,14 @@ const Information = () => {
           {/* Section header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-black mb-4">
-              Our <span className="bg-gradient-to-r from-blue-200 to-purple-200 text-transparent bg-clip-text">Achievements</span>
+              Our{" "}
+              <span className="bg-gradient-to-r from-blue-200 to-purple-200 text-transparent bg-clip-text">
+                Achievements
+              </span>
             </h2>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-              Numbers that speak for our commitment to excellence and customer satisfaction
+              Numbers that speak for our commitment to excellence and customer
+              satisfaction
             </p>
           </div>
 
@@ -193,11 +225,15 @@ const Information = () => {
                 {/* Card background with gradient border */}
                 <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 group-hover:border-white/20 transition-all duration-500">
                   {/* Glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}></div>
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}
+                  ></div>
 
                   {/* Icon */}
                   <div className="flex justify-center mb-6">
-                    <div className={`p-4 ${stat.bgColor} backdrop-blur-sm rounded-2xl group-hover:scale-110 transition-transform duration-300`}>
+                    <div
+                      className={`p-4 ${stat.bgColor} backdrop-blur-sm rounded-2xl group-hover:scale-110 transition-transform duration-300`}
+                    >
                       <stat.icon className="w-8 h-8 text-white" />
                     </div>
                   </div>

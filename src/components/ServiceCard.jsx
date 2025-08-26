@@ -1,11 +1,12 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ServiceCard = ({ title, description, icon, link, category }) => {
+  const navigate = useNavigate();
   return (
     <div className="group relative">
       {/* Card container with enhanced styling */}
       <div className="glass-card h-full p-6 sm:p-8 hover-lift transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-500/10 border border-slate-200/50 group-hover:border-blue-300/30 relative overflow-hidden">
-
         {/* Background gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -45,7 +46,7 @@ const ServiceCard = ({ title, description, icon, link, category }) => {
               href={link}
               className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm group-hover:gap-3 gap-2 transition-all duration-300"
             >
-              Learn More
+              Discover now
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
 

@@ -8,10 +8,13 @@ import {
   Phone,
   Sparkles,
   Twitter,
-  Users
+  Users,
 } from "lucide-react";
 
+import { useNavigate } from "react-router-dom";
+
 const Experts = () => {
+  const navigate = useNavigate();
   const experts = [
     {
       id: 1,
@@ -24,7 +27,7 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
     {
@@ -38,7 +41,7 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
     {
@@ -52,7 +55,7 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
     {
@@ -66,7 +69,7 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
     {
@@ -80,7 +83,7 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
     {
@@ -94,7 +97,7 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
     {
@@ -108,7 +111,7 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
     {
@@ -122,15 +125,30 @@ const Experts = () => {
         facebook: "#",
         twitter: "#",
         instagram: "#",
-        linkedin: "#"
+        linkedin: "#",
       },
     },
   ];
 
   const teamStats = [
-    { icon: Users, number: "50+", label: "Team Members", color: "text-blue-500" },
-    { icon: Award, number: "15+", label: "Years Combined", color: "text-emerald-500" },
-    { icon: Sparkles, number: "100+", label: "Projects Completed", color: "text-purple-500" },
+    {
+      icon: Users,
+      number: "50+",
+      label: "Team Members",
+      color: "text-blue-500",
+    },
+    {
+      icon: Award,
+      number: "15+",
+      label: "Years Combined",
+      color: "text-emerald-500",
+    },
+    {
+      icon: Sparkles,
+      number: "100+",
+      label: "Projects Completed",
+      color: "text-purple-500",
+    },
   ];
 
   return (
@@ -147,7 +165,9 @@ const Experts = () => {
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div className="inline-flex items-center bg-blue-50/80 backdrop-blur-sm border border-blue-200/50 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
             <Users className="w-4 h-4 text-blue-600 mr-2" />
-            <span className="text-sm font-semibold text-blue-700">Our Expert Team</span>
+            <span className="text-sm font-semibold text-blue-700">
+              Our Expert Team
+            </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-800 mb-4 sm:mb-6 leading-tight">
@@ -169,15 +189,25 @@ const Experts = () => {
             {teamStats.map((stat, index) => (
               <div key={index} className="text-center group">
                 <div className="flex flex-col items-center">
-                  <div className={`p-3 bg-gradient-to-r ${
-                    stat.color.includes('blue') ? 'from-blue-500 to-blue-600' :
-                    stat.color.includes('emerald') ? 'from-emerald-500 to-emerald-600' :
-                    'from-purple-500 to-purple-600'
-                  } rounded-2xl mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-${stat.color.split('-')[1]}-500/25`}>
+                  <div
+                    className={`p-3 bg-gradient-to-r ${
+                      stat.color.includes("blue")
+                        ? "from-blue-500 to-blue-600"
+                        : stat.color.includes("emerald")
+                        ? "from-emerald-500 to-emerald-600"
+                        : "from-purple-500 to-purple-600"
+                    } rounded-2xl mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-${
+                      stat.color.split("-")[1]
+                    }-500/25`}
+                  >
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-800">{stat.number}</div>
-                  <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-800">
+                    {stat.number}
+                  </div>
+                  <div className="text-sm text-gray-600 font-medium">
+                    {stat.label}
+                  </div>
                 </div>
               </div>
             ))}
@@ -185,13 +215,23 @@ const Experts = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-            <button className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift">
+            <button
+              onClick={() => {
+                navigate("/join-us");
+              }}
+              className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
+            >
               <Users className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
               Join Our Team
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
 
-            <button className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift">
+            <button
+              onClick={() => {
+                navigate("/about");
+              }}
+              className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
+            >
               <Award className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               View All Team
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -228,10 +268,26 @@ const Experts = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center p-6">
                     <div className="flex gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                       {[
-                        { Icon: Facebook, color: 'hover:bg-blue-600', link: expert.social.facebook },
-                        { Icon: Twitter, color: 'hover:bg-sky-500', link: expert.social.twitter },
-                        { Icon: Instagram, color: 'hover:bg-pink-600', link: expert.social.instagram },
-                        { Icon: Linkedin, color: 'hover:bg-blue-700', link: expert.social.linkedin },
+                        {
+                          Icon: Facebook,
+                          color: "hover:bg-blue-600",
+                          link: expert.social.facebook,
+                        },
+                        {
+                          Icon: Twitter,
+                          color: "hover:bg-sky-500",
+                          link: expert.social.twitter,
+                        },
+                        {
+                          Icon: Instagram,
+                          color: "hover:bg-pink-600",
+                          link: expert.social.instagram,
+                        },
+                        {
+                          Icon: Linkedin,
+                          color: "hover:bg-blue-700",
+                          link: expert.social.linkedin,
+                        },
                       ].map(({ Icon, color, link }, idx) => (
                         <a
                           key={idx}
@@ -250,8 +306,12 @@ const Experts = () => {
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 group-hover:text-blue-700 transition-colors duration-300">
                     {expert.name}
                   </h3>
-                  <p className="text-blue-600 font-semibold mb-1">{expert.role}</p>
-                  <p className="text-gray-600 text-sm mb-4">{expert.specialization}</p>
+                  <p className="text-blue-600 font-semibold mb-1">
+                    {expert.role}
+                  </p>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {expert.specialization}
+                  </p>
 
                   {/* Contact actions */}
                   <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -280,7 +340,8 @@ const Experts = () => {
               Want to Join Our Team?
             </h3>
             <p className="text-gray-600 mb-6">
-              We're always looking for talented individuals who share our passion for excellence and innovation.
+              We're always looking for talented individuals who share our
+              passion for excellence and innovation.
             </p>
             <button className="btn-primary flex items-center justify-center gap-3 mx-auto px-8 py-3 hover-lift">
               <Users className="w-5 h-5" />

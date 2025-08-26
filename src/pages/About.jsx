@@ -4,7 +4,7 @@ import LeaderCard from "../components/LeaderCard";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white pt-32 sm:pt-36 lg:pt-40 px-6 sm:px-12 lg:px-20">
+    <div id="/about" className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white pt-32 sm:pt-36 lg:pt-40 px-6 sm:px-12 lg:px-20">
       {/* Section 1 - Hero Text */}
       <motion.div
         className="text-center mb-20"

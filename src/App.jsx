@@ -13,6 +13,13 @@ import News from "./pages/News";
 import Offer from "./pages/Offer";
 import Contact from "./pages/Contact"; 
 import MainService from "./pages/MainServices";
+import LearnMore from "./pages/LearnMore";
+import DiscoverPublicKendra from "./pages/LearnMore";
+import DiscoverAssociate from "./pages/DiscoverAssociate";
+import DiscoverPhysical from "./pages/DiscoverPhysical";
+import DiscoverStore from "./pages/DiscoverStore";
+import DiscoverRealEstate from "./pages/DiscoverRealEstate";
+import DiscoverHire from "./pages/DiscoverHire";
 
 function App() {
   return (
@@ -53,6 +60,18 @@ function App() {
             <Route path="/contact" element={<Contact />} /> 
             {/* Main Service page */}
             <Route path="/MainService" element={<MainService/>} />
+            {/* Discover Public Kendra Page */}
+            <Route path="/discover-Public-Kendra" element={<DiscoverPublicKendra/>} />
+            {/* Discover Association Page */}
+            <Route path="/discover-Association" element= {<DiscoverAssociate/>} />
+            {/* Discover Physical Page */}
+            <Route path="/disocver-Physical" element = {<DiscoverPhysical/>} />
+            {/* Discover Store */}
+            <Route path="/discover-Store" element = {<DiscoverStore/>} />
+            {/* Discover Real Estate Page */}
+            <Route path="/discover-RealEstate" element = {<DiscoverRealEstate/>} />
+            {/* Discover Hire Page */}
+            <Route path="/discover-Hire" element = {<DiscoverHire/>} />
           </Routes>
         </main>
 

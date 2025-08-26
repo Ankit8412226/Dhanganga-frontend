@@ -1,14 +1,16 @@
 import { ArrowRight, CheckCircle, Sparkles, Target, Users } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Enhanced ServiceCard Component
 const ServiceCard = ({ title, description, icon, link, index }) => {
+  const navigate = useNavigate()
   return (
     <div
       className="relative group glass-card p-6 hover-lift cursor-pointer overflow-hidden"
       style={{
         animationDelay: `${index * 100}ms`,
-        animation: 'fade-in-up 0.6s ease-out forwards'
+        animation: "fade-in-up 0.6s ease-out forwards",
       }}
     >
       {/* Animated background gradient */}
@@ -42,7 +44,9 @@ const ServiceCard = ({ title, description, icon, link, index }) => {
       </p>
 
       {/* Enhanced CTA Link */}
-      <div className="text-center relative z-10">
+      <div
+        className="text-center relative z-10"
+      >
         <a
           href={link}
           className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-all duration-300 group-hover:gap-3"
@@ -59,76 +63,87 @@ const ServiceCard = ({ title, description, icon, link, index }) => {
 };
 
 const Discover = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("mission");
 
   const services = [
     {
       id: 1,
       title: "Dhanganga Online Public Kendra",
-      description: "Responsive and functional IT design worldwide with cutting-edge solutions.",
+      description:
+        "Responsive and functional IT design worldwide with cutting-edge solutions.",
       icon: "💻",
-      link: "#",
+      link: "/discover-Public-Kendra",
     },
     {
       id: 2,
       title: "Dhanganga Associate",
-      description: "Delivering professional IT services and innovative business solutions.",
+      description:
+        "Delivering professional IT services and innovative business solutions.",
       icon: "⚖️",
-      link: "#",
+      link: "/discover-Association",
     },
     {
       id: 3,
       title: "Dhanganga Physical Treatment Home",
-      description: "Modern approach to physical wellness, rehabilitation & comprehensive care.",
+      description:
+        "Modern approach to physical wellness, rehabilitation & comprehensive care.",
       icon: "🏥",
-      link: "#",
+      link: "/disocver-Physical",
     },
     {
       id: 4,
       title: "Dhanganga Store",
-      description: "Your trusted marketplace for quality products and reliable services.",
+      description:
+        "Your trusted marketplace for quality products and reliable services.",
       icon: "🏪",
-      link: "#",
+      link: "/discover-Store",
     },
     {
       id: 5,
       title: "Dhanganga Real Estate",
-      description: "Helping you find your dream properties and investment opportunities.",
+      description:
+        "Helping you find your dream properties and investment opportunities.",
       icon: "🏢",
-      link: "#",
+      link: "/discover-RealEstate",
     },
     {
       id: 6,
       title: "Dhanganga Hire Services",
-      description: "Professional on-demand services tailored to your specific needs.",
+      description:
+        "Professional on-demand services tailored to your specific needs.",
       icon: "🔧",
-      link: "#",
+      link: "/discover-Hire",
     },
     {
       id: 7,
       title: "Dhanganga Hire Vehicle",
-      description: "Reliable vehicle rental solutions for all transportation needs.",
+      description:
+        "Reliable vehicle rental solutions for all transportation needs.",
       icon: "🚗",
       link: "#",
     },
     {
       id: 8,
       title: "Naye Soch Naya Kadam",
-      description: "Innovative healthcare solutions for a healthier, brighter tomorrow.",
+      description:
+        "Innovative healthcare solutions for a healthier, brighter tomorrow.",
       icon: "💡",
       link: "#",
     },
     {
       id: 9,
       title: "Netralay",
-      description: "Comprehensive eye care and advanced vision wellness services.",
+      description:
+        "Comprehensive eye care and advanced vision wellness services.",
       icon: "👁️",
       link: "#",
     },
     {
       id: 10,
       title: "Dhanganga Mystics Healing",
-      description: "Spiritual wellness and holistic healing practices for mind-body harmony.",
+      description:
+        "Spiritual wellness and holistic healing practices for mind-body harmony.",
       icon: "✨",
       link: "#",
     },
@@ -164,23 +179,37 @@ const Discover = () => {
             </span>
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Delivering excellence across multiple domains with innovation, dedication, and unwavering commitment to quality.
+            Delivering excellence across multiple domains with innovation,
+            dedication, and unwavering commitment to quality.
           </p>
         </div>
 
         {/* Achievement Stats */}
-        <div className="flex flex-wrap justify-center gap-8 mb-16 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <div
+          className="flex flex-wrap justify-center gap-8 mb-16 animate-fade-in-up"
+          style={{ animationDelay: "0.2s" }}
+        >
           {achievements.map((achievement, index) => (
-            <div key={index} className="glass-card px-8 py-6 text-center hover-lift group">
+            <div
+              key={index}
+              className="glass-card px-8 py-6 text-center hover-lift group"
+            >
               <achievement.icon className="w-8 h-8 text-blue-500 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-              <div className="text-3xl font-black text-slate-800 mb-1">{achievement.number}</div>
-              <div className="text-sm text-slate-600 font-medium">{achievement.label}</div>
+              <div className="text-3xl font-black text-slate-800 mb-1">
+                {achievement.number}
+              </div>
+              <div className="text-sm text-slate-600 font-medium">
+                {achievement.label}
+              </div>
             </div>
           ))}
         </div>
 
         {/* Enhanced Tab Buttons */}
-        <div className="flex justify-center gap-4 mb-16 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <div
+          className="flex justify-center gap-4 mb-16 animate-fade-in-up"
+          style={{ animationDelay: "0.4s" }}
+        >
           {["mission", "services"].map((tab) => (
             <button
               key={tab}
@@ -226,8 +255,9 @@ const Discover = () => {
                 </h3>
 
                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  We provide comprehensive solutions across multiple domains with unwavering dedication.
-                  Reach out for detailed analysis and tailored assessments of your specific requirements.
+                  We provide comprehensive solutions across multiple domains
+                  with unwavering dedication. Reach out for detailed analysis
+                  and tailored assessments of your specific requirements.
                 </p>
 
                 {/* Enhanced Service List */}
@@ -248,7 +278,12 @@ const Discover = () => {
                   ))}
                 </div>
 
-                <button className="btn-primary text-lg px-10 py-4 hover-lift group">
+                <button
+                  onClick={() => {
+                    navigate("/appoinment");
+                  }}
+                  className="btn-primary text-lg px-10 py-4 hover-lift group"
+                >
                   <span className="flex items-center gap-3">
                     Let's Get Started
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
