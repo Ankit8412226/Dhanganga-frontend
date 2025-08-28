@@ -20,7 +20,7 @@ const MainService = () => {
       title: "Dhanganga Online Public Kendra",
       description: "Responsive and functional IT design worldwide.",
       icon: "💻",
-      link: "#",
+      link: "/discover-Public-Kendra",
       category: "Digital Services",
     },
     {
@@ -28,7 +28,7 @@ const MainService = () => {
       title: "Dhanganga Associate",
       description: "Delivering professional IT services and solutions.",
       icon: "⚖️",
-      link: "#",
+      link: "/discover-Association",
       category: "Professional Services",
     },
     {
@@ -36,7 +36,7 @@ const MainService = () => {
       title: "Dhanganga Physical Treatment Home",
       description: "Modern approach to physical wellness & care.",
       icon: "🏥",
-      link: "#",
+      link: "/discover-Physical",
       category: "Healthcare",
     },
     {
@@ -44,7 +44,7 @@ const MainService = () => {
       title: "Dhanganga Store",
       description: "Your trusted source for products & services.",
       icon: "🏪",
-      link: "#",
+      link: "/discover-Store",
       category: "Retail",
     },
     {
@@ -52,7 +52,7 @@ const MainService = () => {
       title: "Dhanganga Real Estate",
       description: "Helping you find your dream properties.",
       icon: "🏢",
-      link: "#",
+      link: "/discover-RealEstate",
       category: "Real Estate",
     },
     {
@@ -60,7 +60,7 @@ const MainService = () => {
       title: "Dhanganga Hire Services",
       description: "Providing on-demand professional services.",
       icon: "🔧",
-      link: "#",
+      link: "/discover-Hire",
       category: "Professional Services",
     },
     {
@@ -68,7 +68,7 @@ const MainService = () => {
       title: "Dhanganga Hire Vehicle",
       description: "Vehicle rental solutions for all your needs.",
       icon: "🚗",
-      link: "#",
+      link: "/discover-Vehicle",
       category: "Transportation",
     },
     {
@@ -76,7 +76,7 @@ const MainService = () => {
       title: "Naye Soch Naya Kadam",
       description: "Innovative solutions for a brighter tomorrow.",
       icon: "💡",
-      link: "#",
+      link: "/discover-NayeSoch",
       category: "Innovation",
     },
     {
@@ -84,7 +84,7 @@ const MainService = () => {
       title: "Netralay",
       description: "Eye care and vision wellness at its best.",
       icon: "👁️",
-      link: "#",
+      link: "/discover-Netralay",
       category: "Healthcare",
     },
     {
@@ -92,7 +92,7 @@ const MainService = () => {
       title: "Dhanganga Mystics Healing",
       description: "Spiritual & holistic healing practices.",
       icon: "✨",
-      link: "#",
+      link: "/discover-Healing",
       category: "Wellness",
     },
   ];

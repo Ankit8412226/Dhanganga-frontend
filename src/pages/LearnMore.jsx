@@ -68,7 +68,7 @@ const DiscoverPublicKendra = () => {
       price: "3600",
       duration: "30 days",
       durationType: "Minimum",
-      requirements: [],
+      requirements: ["1. Age Proof 2. Address Proof 3. Passport Photo 4.Blood group Proof" ],
     },
     {
       title: "KOVID-19 CORONA VACCINE CERTIFICATE",
@@ -76,7 +76,7 @@ const DiscoverPublicKendra = () => {
       price: "10",
       duration: "1 days",
       durationType: "Maximum",
-      requirements: [],
+      requirements: [ "1. Registered mobile number only" ],
     },
     {
       title: "FOOD LICENSE",
@@ -99,7 +99,7 @@ const DiscoverPublicKendra = () => {
       ],
     },
     {
-      title: "DETH CERTIFICATE",
+      title: "DEATH CERTIFICATE",
       titleHindi: "मृत्यु प्रमाण-पत्र",
       price: "600",
       duration: "7 days",
@@ -134,9 +134,128 @@ const DiscoverPublicKendra = () => {
         duration: "3 days",
         durationType: "Minimum",
         requirements: [
-            "1. Aadhar Card 2. Current Lagan rasid 3. Photo"
+            "1. Aadhar Card 2. Current Lagan rasid 3. Foto"
         ]
-    }
+    },
+
+    {
+        title: "AADHAR CARD DOWNLOADING VIA O.T.P",
+        price: "20",
+        duration: "1 days",
+        durationType: "Maximum",
+        requirements: [
+            "1.Aadhar no. 2. Mob. No."
+        ]
+    },
+    {
+        title: "VOTER LIST NAME ADDING",
+        price: "30",
+        duration: "7 days",
+        durationType: "Minimum",
+        requirements: [
+            "1. Pan Card 2. Aadhar Card 3. bank passbook"
+        ]
+    },
+    {
+        title: "RATIONCARD APPLY",
+        price: "50",
+        duration: "1 days",
+        durationType: "Maximum",
+        requirements: [
+            "1. Self Attested Photograph 2. Aadhar or Votter or pan 3. Bank passbook 4. Affidavit"
+        ]
+    },
+    {
+        title: "FARMER REGISTRATION",
+        price: "30",
+        duration: "1 days",
+        durationType: "Maximum",
+        requirements: [
+            "1. Photo 2. Aadhar Card 3. Bank Passbook 4. Proof of place of doing Farming"
+        ]
+    },
+    {
+        title: "O.B.C CERTIFICATE",
+        price: "300",
+        duration: "3 days",
+        durationType: "Minimum",
+        requirements: [
+            "1. Self Attested Photograph 2. Aadhar or Votter or pan or Rasan card"
+        ]
+    },
+    {
+        title: "EWS",
+        price: "1000",
+        duration: "3 days",
+        durationType: "Maximum",
+        requirements: [
+            "1. Self Attested Photograph 2. Aadhar Card 3. Affidavit 4. Cast, Res. & Incom Certificate (1. सेल्फ अटेस्टेड फोटो 2. आधार कार्ड 3. हलफनामा 4. जाति, निवासी और आय प्रमाण-पत्र)"
+        ]
+    },
+    {
+        title: "CASTE CERTIFICATE ONLINE",
+        price: "50",
+        duration: "1 days",
+        durationType: "Maximum",
+        requirements: [
+            "1. Self Attested Photograph 2. Aadhar or Votter or pan or Rasan card"
+        ]
+    },
+    {
+        title: "INCOME CERTIFICATE ONLINE",
+        price: "50",
+        duration: "1 days",
+        durationType: "Maximum",
+        requirements: [
+            "1. Self Attested Photograph 2. Aadhar or Votter or pan or Rasan card"
+        ]
+    },
+    {
+        title: "RESIDENTIAL CERTIFICATE ONLINE",
+        price: "50",
+        duration: "1 days",
+        durationType: "Maximum",
+        requirements: [
+            "1. Self Attested Photograph 2. Aadhar or Votter or pan or Rasan card"
+        ]
+    },
+    {
+        title: "SMALL INDUSTRIES LICENSE(M. S. M. E.लघु उद्योग लाइसेंस )",
+        price: "150",
+        duration: "1 days",
+        durationType: "Maximumm",
+        requirements: [
+            "1. Aadhar Card 2. Pan Card 3. Bank Passbook 4. Business Detail"
+        ]
+    },
+    {
+        title: "VANSHWLI PARMAN PATRA",
+        price: "1650",
+        duration: "10 days (कम से कम 10 दिन)",
+        durationType: "Mininum ",
+        requirements: [
+            "1. Affidavit 2. All member Aadhar Card 3.Aawedan (आवेदन)"
+        ]
+    },
+    {
+        title: "ONLINE CORRECTION OF LAND",
+        price: "70",
+        duration: " 01 days (कम से कम 01 दिन)",
+        durationType: "Mininum",
+        requirements: [
+            "1. ऑफलाइन, ऑनलाइन लगान रसीद। 2. सुधार करने वाले तथ्यों का प्रमाण।"
+        ]
+    },
+    {
+        title: "ONLINE MUTATION APPLY",
+        price: "100",
+        duration: "01 days (कम से कम 01 दिन)",
+        durationType: "Minimum",
+        requirements: [
+            "1. All member Aadhar Card 2. Related Document."
+        ]
+    },
+    
   ];
 
   return (
