@@ -30,6 +30,7 @@ import DiscoverVehicle from "./pages/DiscoverVehicle.jsx";
 import DiscoverNayeSoch from "./pages/DiscoverNayeSoch.jsx";
 import DiscoverNetralay from "./pages/DiscoverNetralay.jsx";
 import DiscoverHealing from "./pages/DiscoverHealing.jsx";
+import MainAppoinment from "./pages/MainAppoinment.jsx";
 
 function App() {
   return (
@@ -56,7 +57,7 @@ function App() {
             />
 
             {/* Netralay Page */}
-            <Route path="/netralay" element={<NetralayPage />} />
+            {/* <Route path="/netralay" element={<NetralayPage />} /> */}
 
             {/* About Page */}
             <Route path="/about" element={<About />} />
@@ -65,7 +66,7 @@ function App() {
             <Route path="/join-us" element={<JoinUs />} />
 
             {/* Appointment Page */}
-            <Route path="/appointment" element={<BookingModal />} />
+            <Route path="/appoinment" element={<MainAppoinment />} />
 
             {/* News Page */}
             <Route path="/news" element={<News />} />

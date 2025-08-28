@@ -1,9 +1,8 @@
-// src/pages/BookingModal.jsx
+// src/pages/MainAppoinment.jsx
 import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const BookingModal = () => {
+const MainAppoinment = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const navigate = useNavigate();
@@ -151,7 +150,7 @@ const BookingModal = () => {
         "Aadhar / Voter ID / PAN / Ration Card",
       ],
     },
-    "EWS": {
+    EWS: {
       price: "₹1000",
       days: "Maximum 3 days",
       documents: [
@@ -169,7 +168,7 @@ const BookingModal = () => {
         "Aadhar / Voter ID / PAN / Ration Card",
       ],
     },
-    
+
     "INCOME CERTIFICATE ONLINE": {
       price: "₹50",
       days: "Maximum 1 day",
@@ -272,7 +271,7 @@ const BookingModal = () => {
       "FAMILY MATTER",
       "BHAGALPUR CIVIL COURT ALL WORK",
       "Miscellaneous (विविध)",
-      "Service Matter"
+      "Service Matter",
     ],
     "DhanGanga physical Treatment Home": [
       "Allopathy",
@@ -282,21 +281,21 @@ const BookingModal = () => {
       "Acupressure",
       "Rekki",
       "Astrology",
-      "Tantra- Mantra"
+      "Tantra- Mantra",
     ],
     "DhanGanga Store": [
-      "BUILDING MATERIAL (मकान निर्माण सामग्री)", 
-      "READYMADE CLOTH (रेडीमेड कपड़ा )", 
+      "BUILDING MATERIAL (मकान निर्माण सामग्री)",
+      "READYMADE CLOTH (रेडीमेड कपड़ा )",
       "COMPUETR & CCTV",
       "GROCERY (किराना )",
-      "SOMEWHAT DIFFERENT (जरा हट के!)"
+      "SOMEWHAT DIFFERENT (जरा हट के!)",
     ],
     "DhanGanga real Estate": [
       "SALE",
       "PURCHASE",
       "RENT",
       "LEASE",
-      "INVESTEMENT"
+      "INVESTEMENT",
     ],
     "DhanGanga Hire Service": [
       "RAJ MISTRI (राज मिस्त्री)",
@@ -304,7 +303,7 @@ const BookingModal = () => {
       "CARPENTER (बढ़ई मिस्त्री)",
       "GRILL MISTRY (ग्रिल मिस्त्री)",
       "RANG PAINT MISTRI (रंग-पेंट मिस्त्री)",
-      "PIELING MISTRY (पाइलिंग मिस्त्री)"
+      "PIELING MISTRY (पाइलिंग मिस्त्री)",
     ],
     "Dhanganga Hire Vehicle": [
       "INSIDE YOUR DISTRICT",
@@ -317,16 +316,13 @@ const BookingModal = () => {
       "INTRODUCTION",
       "TERM AND CONDITION",
       "HOW TO JOIN AND WHAT ARE THE BENEFITS",
-      "FOUNDER DETAILS"
+      "FOUNDER DETAILS",
     ],
-    "Netralay": [
+    Netralay: [
       "REGISTRATION FOR TREATMENT AT LAHAN HOSPITAL",
       "REGISTRATION OF NETRAYALAY BHAGALPUR",
     ],
-    "Dhangana Mystics Healing": [
-      "HEALING/ TREATMENT",
-      "TRAINING",
-    ],
+    "Dhangana Mystics Healing": ["HEALING/ TREATMENT", "TRAINING"],
   };
 
   const handleSubmit = (e) => {
@@ -338,7 +334,6 @@ const BookingModal = () => {
         documents: [],
       };
 
-      // ✅ Pass data via navigate state
       navigate("/service-details", {
         state: {
           category: selectedCategory,
@@ -350,66 +345,66 @@ const BookingModal = () => {
   };
 
   return (
-    <div className="bg-white mt-10 rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          Book appointment
-        </h2>
-        <p className="text-gray-600">
-          It's our pleasure to have a chance to cooperate.
-        </p>
-      </div>
-
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Category Dropdown */}
-        <div className="relative">
-          <select
-            value={selectedCategory}
-            onChange={(e) => {
-              setSelectedCategory(e.target.value);
-              setSelectedSubCategory("");
-            }}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
-          >
-            <option value="">Select Category</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          {/* <ChevronDown className="absolute right-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" /> */}
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">
+            Book appointment
+          </h2>
+          <p className="text-gray-600">
+            It's our pleasure to have a chance to cooperate.
+          </p>
         </div>
 
-        {/* Sub Category Dropdown */}
-        <div className="relative">
-          <select
-            value={selectedSubCategory}
-            onChange={(e) => setSelectedSubCategory(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
-            disabled={!selectedCategory}
-          >
-            <option value="">Select Sub Category</option>
-            {selectedCategory &&
-              subCategories[selectedCategory]?.map((subCat) => (
-                <option key={subCat} value={subCat}>
-                  {subCat}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Category Dropdown */}
+          <div className="relative">
+            <select
+              value={selectedCategory}
+              onChange={(e) => {
+                setSelectedCategory(e.target.value);
+                setSelectedSubCategory("");
+              }}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
+            >
+              <option value="">Select Category</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
                 </option>
               ))}
-          </select>
-          {/* <ChevronDown className="absolute right-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" /> */}
-        </div>
+            </select>
+          </div>
 
-        {/* Get Start Button */}
-        <button
-          type="submit"
-          className="w-full cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
-        >
-          Get Start
-        </button>
-      </form>
+          {/* Sub Category Dropdown */}
+          <div className="relative">
+            <select
+              value={selectedSubCategory}
+              onChange={(e) => setSelectedSubCategory(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
+              disabled={!selectedCategory}
+            >
+              <option value="">Select Sub Category</option>
+              {selectedCategory &&
+                subCategories[selectedCategory]?.map((subCat) => (
+                  <option key={subCat} value={subCat}>
+                    {subCat}
+                  </option>
+                ))}
+            </select>
+          </div>
+
+          {/* Get Start Button */}
+          <button
+            type="submit"
+            className="w-full cursor-pointer bg-gradient-to-r from-blue-500 to-purple-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+          >
+            Get Start
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default BookingModal;
+export default MainAppoinment;
