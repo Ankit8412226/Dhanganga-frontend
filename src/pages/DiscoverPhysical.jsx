@@ -1,33 +1,33 @@
-import React from 'react'
-import AssociateCard from '../components/AssociateCard';
+import React from "react";
+import AssociateCard from "../components/AssociateCard";
 
 const DiscoverPhysical = () => {
-    const services = [
-        {
-            title: "ALLOPATHY"
-        },
-        {
-            title: "HOMEOPATHY"
-        },
-        {
-            title: "ELECTRO HOMEOPATHY"
-        },
-        {
-            title: "AYURVEDA"
-        },
-        {
-            title: "ACUPRESSURE"
-        },
-        {
-            title: "REKKI"
-        },
-        {
-            title: "ASTROLOGY"
-        },
-        {
-            title: "TANTRA- MANTRA"
-        },
-    ]
+  const services = [
+    {
+      title: "ALLOPATHY",
+    },
+    {
+      title: "HOMEOPATHY",
+    },
+    {
+      title: "ELECTRO HOMEOPATHY",
+    },
+    {
+      title: "AYURVEDA",
+    },
+    {
+      title: "ACUPRESSURE",
+    },
+    {
+      title: "REKKI",
+    },
+    {
+      title: "ASTROLOGY",
+    },
+    {
+      title: "TANTRA- MANTRA",
+    },
+  ];
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="container mx-auto px-6">
@@ -184,6 +184,6 @@ const DiscoverPhysical = () => {
       </div>
     </section>
   );
-}
+};
 
-export default DiscoverPhysical
+export default DiscoverPhysical;

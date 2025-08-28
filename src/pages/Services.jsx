@@ -8,9 +8,11 @@ import {
 } from "lucide-react";
 import ServiceCard from "../components/ServiceCard";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Service = () => {
   const navigate = useNavigate();
+
   const services = [
     {
       id: 1,
@@ -33,7 +35,7 @@ const Service = () => {
       title: "Dhanganga Physical Treatment Home",
       description: "Modern approach to physical wellness & care.",
       icon: "🏥",
-      link: "/disocver-Physical",
+      link: "/discover-Physical",
       category: "Healthcare",
     },
     {
@@ -100,6 +102,16 @@ const Service = () => {
     { number: "15+", label: "Years Experience", icon: Sparkles },
   ];
 
+  // Framer Motion Variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+    }),
+  };
+
   return (
     <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-16 sm:py-20 lg:py-24 overflow-hidden">
       {/* Background decorative elements */}
@@ -111,7 +123,13 @@ const Service = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <motion.div
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <div className="inline-flex items-center bg-blue-50/80 backdrop-blur-sm border border-blue-200/50 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
             <Sparkles className="w-4 h-4 text-blue-600 mr-2" />
             <span className="text-sm font-semibold text-blue-700">
@@ -135,7 +153,15 @@ const Service = () => {
           {/* Stats Section */}
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12 mt-8 sm:mt-12">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
+              <motion.div
+                key={index}
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="text-center group"
+              >
                 <div className="flex flex-col items-center">
                   <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/25">
                     <stat.icon className="w-6 h-6 text-white" />
@@ -147,18 +173,21 @@ const Service = () => {
                     {stat.label}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={service.id}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
             >
               <ServiceCard
                 title={service.title}
@@ -167,12 +196,18 @@ const Service = () => {
                 link={service.link}
                 category={service.category}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Call to Action Section */}
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <div className="glass-card max-w-4xl mx-auto p-8 sm:p-10 lg:p-12 border border-slate-200/50">
             <div className="space-y-6 sm:space-y-8">
               <div>
@@ -187,22 +222,26 @@ const Service = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-                <button className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
+                >
                   <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                   Talk to a Consultant
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </motion.button>
 
-                <button
-                  onClick={() => {
-                    navigate("/contact");
-                  }}
+                <motion.button
+                  onClick={() => navigate("/contact")}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
                 >
                   <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   Contact Us Now
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </motion.button>
               </div>
 
               {/* Contact Information */}
@@ -210,7 +249,7 @@ const Service = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-blue-600" />
-                    <span>+91 9234692692</span>
+                    <span>+91 7764026786</span>
                   </div>
                   <div className="hidden sm:block w-1 h-1 bg-gray-400 rounded-full"></div>
                   <div className="flex items-center gap-2">
@@ -221,7 +260,7 @@ const Service = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

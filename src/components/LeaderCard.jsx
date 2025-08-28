@@ -10,6 +10,7 @@ import {
   Twitter,
   Users,
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const LeaderCard = () => {
   const experts = [
@@ -126,14 +127,28 @@ const LeaderCard = () => {
       },
     },
   ];
+
   return (
     <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-16 sm:py-20 lg:py-24 overflow-hidden">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-        {experts.map((expert, index) => (
-          <div
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
+        initial="hidden"
+        animate="show"
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.15 } },
+        }}
+      >
+        {experts.map((expert) => (
+          <motion.div
             key={expert.id}
-            className="group animate-fade-in-up"
-            style={{ animationDelay: `${index * 100}ms` }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              show: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            whileHover={{ scale: 1.03 }}
+            className="group"
           >
             <div className="glass-card overflow-hidden hover-lift transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-slate-200/50 border border-slate-200/50 group-hover:border-blue-300/30 relative">
               {/* Image with Hover Overlay */}
@@ -217,9 +232,9 @@ const LeaderCard = () => {
               {/* Decorative corner element */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/5 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

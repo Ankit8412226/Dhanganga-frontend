@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"; // ✅ Added
 
 const Experts = () => {
   const navigate = useNavigate();
@@ -162,7 +163,13 @@ const Experts = () => {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
+        >
           <div className="inline-flex items-center bg-blue-50/80 backdrop-blur-sm border border-blue-200/50 rounded-full px-4 sm:px-6 py-2 mb-6 sm:mb-8">
             <Users className="w-4 h-4 text-blue-600 mr-2" />
             <span className="text-sm font-semibold text-blue-700">
@@ -187,7 +194,14 @@ const Experts = () => {
           {/* Team Stats */}
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12">
             {teamStats.map((stat, index) => (
-              <div key={index} className="text-center group">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="text-center group"
+              >
                 <div className="flex flex-col items-center">
                   <div
                     className={`p-3 bg-gradient-to-r ${
@@ -196,9 +210,7 @@ const Experts = () => {
                         : stat.color.includes("emerald")
                         ? "from-emerald-500 to-emerald-600"
                         : "from-purple-500 to-purple-600"
-                    } rounded-2xl mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-${
-                      stat.color.split("-")[1]
-                    }-500/25`}
+                    } rounded-2xl mb-3 group-hover:scale-110 transition-transform duration-300`}
                   >
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
@@ -209,43 +221,21 @@ const Experts = () => {
                     {stat.label}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-            <button
-              onClick={() => {
-                navigate("/join-us");
-              }}
-              className="group w-full sm:w-auto btn-primary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
-            >
-              <Users className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-              Join Our Team
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-
-            <button
-              onClick={() => {
-                navigate("/about");
-              }}
-              className="group w-full sm:w-auto btn-secondary flex items-center justify-center gap-3 px-6 sm:px-10 py-4 text-base sm:text-lg font-bold hover-lift"
-            >
-              <Award className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-              View All Team
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-          </div>
-        </div>
+        </motion.div>
 
         {/* Experts Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
           {experts.map((expert, index) => (
-            <div
+            <motion.div
               key={expert.id}
-              className="group animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group"
             >
               <div className="glass-card overflow-hidden hover-lift transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-slate-200/50 border border-slate-200/50 group-hover:border-blue-300/30 relative">
                 {/* Image with Hover Overlay */}
@@ -329,12 +319,18 @@ const Experts = () => {
                 {/* Decorative corner element */}
                 <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/5 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Bottom CTA Section */}
-        <div className="text-center mt-12 sm:mt-16 lg:mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mt-12 sm:mt-16 lg:mt-20"
+        >
           <div className="glass-card max-w-2xl mx-auto p-8 sm:p-10 border border-slate-200/50">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
               Want to Join Our Team?
@@ -349,7 +345,7 @@ const Experts = () => {
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

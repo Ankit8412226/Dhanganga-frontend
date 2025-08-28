@@ -105,10 +105,10 @@ function App() {
 
             {/* Discover Hire Page */}
             <Route path="/discover-Hire" element={<DiscoverHire />} />
-            <Route path="/discover-Vehicle" element={<DiscoverVehicle/>} />
-            <Route path="/discover-NayeSoch" element={<DiscoverNayeSoch/>} />
-            <Route path="/discover-Netralay" element={<DiscoverNetralay/>} />
-            <Route path="/discover-Healing" element={<DiscoverHealing/>} />
+            <Route path="/discover-Vehicle" element={<DiscoverVehicle />} />
+            <Route path="/discover-NayeSoch" element={<DiscoverNayeSoch />} />
+            <Route path="/discover-Netralay" element={<DiscoverNetralay />} />
+            <Route path="/discover-Healing" element={<DiscoverHealing />} />
 
             {/* Booking / Service details pages */}
             <Route path="/booking" element={<BookingModal />} />

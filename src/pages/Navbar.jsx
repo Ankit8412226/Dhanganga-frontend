@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,7 +23,6 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    // { name: "Netralay", href: "/netralay" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/MainService", hasDropdown: false },
     { name: "Appointment", href: "/appoinment" },
@@ -33,9 +33,7 @@ const Navbar = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -49,9 +47,7 @@ const Navbar = () => {
   };
 
   const handleNavClick = (href) => {
-    if (href === "#booking-section") {
-      scrollToBooking();
-    }
+    if (href === "#booking-section") scrollToBooking();
     setIsMobileMenuOpen(false);
   };
 
@@ -80,20 +76,30 @@ const Navbar = () => {
             </div>
 
             {/* Contact info desktop */}
-            <div className="hidden xl:flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-blue-600" />
-                <span className="text-sm">+91 9234692692</span>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="hidden xl:flex items-center space-x-6"
+            >
+              <div className="flex hover:text-blue-400 items-center gap-3 group cursor-pointer">
+                <Phone className="w-5 h-4 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+                <a
+                  href="tel:+917764026786"
+                  className="text-sm font-semibold transition-colors duration-300"
+                >
+                  (+91) 7764026786
+                </a>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex cursor-pointer hover:text-green-600 items-center space-x-2">
                 <MapPin className="w-4 h-4 text-green-600" />
                 <span className="text-sm">Bhagalpur, Bihar</span>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex cursor-pointer hover:text-purple-400 items-center space-x-2">
                 <Clock className="w-4 h-4 text-purple-600" />
                 <span className="text-sm">9:00 AM - 8:00 PM</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Social Icons */}
             <div className="flex items-center space-x-4">
@@ -102,6 +108,45 @@ const Navbar = () => {
               <Instagram className="w-5 h-5 hover:rotate-12 text-gray-600 hover:text-[#E4405F] cursor-pointer transition-colors duration-300" />
               <Linkedin className="w-5 h-5 hover:rotate-12 text-gray-600 hover:text-[#0077B5] cursor-pointer transition-colors duration-300" />
             </div>
+
+            {/* Mobile toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-slate-700 hover:text-blue-600"
+            >
+              {isMobileMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+
+          {/* Contact info mobile (below logo) */}
+          <div className="flex flex-col items-start gap-2 xl:hidden pb-3 text-sm">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-blue-600" />
+              <a href="tel:+917764026786">(+91) 7764026786</a>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex items-center gap-2"
+            >
+              <MapPin className="w-4 h-4 text-green-600" />
+              <span>Bhagalpur, Bihar</span>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="flex items-center gap-2"
+            >
+              <Clock className="w-4 h-4 text-purple-600" />
+              <span>9:00 AM - 8:00 PM</span>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -114,64 +159,24 @@ const Navbar = () => {
             <ul className="hidden lg:flex space-x-2 py-3">
               {navItems.map((item, index) => (
                 <li key={index} className="relative group">
-                  {item.href.startsWith("/") ? (
-                    <Link
-                      to={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`relative flex items-center gap-1 px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 overflow-hidden
-                        ${
-                          location.pathname === item.href
-                            ? "text-blue-600 bg-white/60 shadow-md border border-blue-100"
-                            : "text-slate-700 hover:text-blue-600 hover:bg-white/40 hover:shadow-sm"
-                        }`}
-                    >
-                      {/* Card background effect */}
-                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${location.pathname === item.href ? 'opacity-100' : ''}`}></div>
-                      
-                      <span className="relative z-10">{item.name}</span>
-                      {item.hasDropdown && <ChevronDown className="w-3 h-3 relative z-10" />}
-
-                      {/* Dynamic underline that matches text width */}
-                      <span 
-                        className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 h-[2px] bg-blue-600 transition-all duration-300 ${
-                          location.pathname === item.href 
-                            ? 'w-3/4' 
-                            : 'w-0 group-hover:w-3/4'
-                        }`}
-                      ></span>
-                    </Link>
-                  ) : (
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        if (item.href === "#booking-section") {
-                          e.preventDefault();
-                          handleNavClick(item.href);
-                        }
-                      }}
-                      className="relative flex items-center gap-1 px-4 py-3 text-sm font-semibold text-slate-700 hover:text-blue-600 rounded-xl transition-all duration-300 overflow-hidden hover:bg-white/40 hover:shadow-sm group"
-                    >
-                      {/* Card background effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      
-                      <span className="relative z-10">{item.name}</span>
-                      {item.hasDropdown && <ChevronDown className="w-3 h-3 relative z-10" />}
-                      
-                      {/* Dynamic underline that matches text width */}
-                      <span className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-3/4"></span>
-                    </a>
-                  )}
+                  <Link
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`relative flex items-center gap-1 px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 overflow-hidden
+                      ${
+                        location.pathname === item.href
+                          ? "text-blue-600 bg-white/60 shadow-md border border-blue-100"
+                          : "text-slate-700 hover:text-blue-600 hover:bg-white/40 hover:shadow-sm"
+                      }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                    {item.hasDropdown && (
+                      <ChevronDown className="w-3 h-3 relative z-10" />
+                    )}
+                  </Link>
                 </li>
               ))}
             </ul>
-
-            {/* Mobile toggle */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-700 hover:text-blue-600"
-            >
-              {isMobileMenuOpen ? <X /> : <Menu />}
-            </button>
 
             {/* Book Appointment CTA (desktop) */}
             <div className="hidden lg:block">
@@ -185,69 +190,49 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile nav */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden px-4 pb-4">
-            <ul className="space-y-2">
-              {navItems.map((item, index) => (
-                <li key={index} className="relative group">
-                  {item.href.startsWith("/") ? (
+        {/* Mobile nav with framer motion */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="lg:hidden px-4 pb-4"
+            >
+              <ul className="space-y-2">
+                {navItems.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -15 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
                     <Link
                       to={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`relative block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 overflow-hidden ${
+                      className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
                         location.pathname === item.href
                           ? "text-blue-600 bg-white/60 shadow-md border border-blue-100"
                           : "text-slate-700 hover:text-blue-600 hover:bg-white/40"
                       }`}
                     >
-                      {/* Card background effect for mobile */}
-                      <div className={`absolute inset-0 bg-gradient-to-r from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${location.pathname === item.href ? 'opacity-100' : ''}`}></div>
-                      
-                      <span className="relative z-10">{item.name}</span>
-                      
-                      {/* Dynamic underline for mobile */}
-                      <span 
-                        className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 h-[2px] bg-blue-600 transition-all duration-300 ${
-                          location.pathname === item.href 
-                            ? 'w-3/4' 
-                            : 'w-0 group-hover:w-3/4'
-                        }`}
-                      ></span>
+                      {item.name}
                     </Link>
-                  ) : (
-                    <a
-                      href={item.href}
-                      onClick={(e) => {
-                        if (item.href === "#booking-section") {
-                          e.preventDefault();
-                          handleNavClick(item.href);
-                        }
-                      }}
-                      className="relative block px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:text-blue-600 transition-all duration-300 overflow-hidden hover:bg-white/40 group"
-                    >
-                      {/* Card background effect for mobile */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      
-                      <span className="relative z-10">{item.name}</span>
-                      
-                      {/* Dynamic underline for mobile */}
-                      <span className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-3/4"></span>
-                    </a>
-                  )}
+                  </motion.li>
+                ))}
+                <li>
+                  <button
+                    onClick={scrollToBooking}
+                    className="w-full bg-blue-600 text-white px-5 py-3 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg"
+                  >
+                    <Calendar className="w-4 h-4" /> Book Appointment
+                  </button>
                 </li>
-              ))}
-              <li>
-                <button
-                  onClick={scrollToBooking}
-                  className="w-full bg-blue-600 text-white px-5 py-3 rounded-lg flex items-center justify-center gap-2 font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg"
-                >
-                  <Calendar className="w-4 h-4" /> Book Appointment
-                </button>
-              </li>
-            </ul>
-          </div>
-        )}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );
