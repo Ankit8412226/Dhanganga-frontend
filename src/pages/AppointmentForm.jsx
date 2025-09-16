@@ -1,11 +1,15 @@
 // src/pages/BookingModal.jsx
-import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchServices, fetchSubServices } from "../api/services";
 
 const BookingModal = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
+  const [services, setServices] = useState([]);
+  const [subServices, setSubServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   // ✅ All service data here
@@ -169,7 +173,7 @@ const BookingModal = () => {
         "Aadhar / Voter ID / PAN / Ration Card",
       ],
     },
-    
+
     "INCOME CERTIFICATE ONLINE": {
       price: "₹50",
       days: "Maximum 1 day",
@@ -222,127 +226,58 @@ const BookingModal = () => {
     // 👉 Add more subcategories as needed...
   };
 
-  const categories = [
-    "DhanGanga online public kendra",
-    "DhanGanga Association",
-    "DhanGanga physical Treatment Home",
-    "DhanGanga Store",
-    "DhanGanga real Estate",
-    "DhanGanga Hire Service",
-    "Dhanganga Hire Vehicle",
-    "Naye Soch Naye Kadam",
-    "Netralay",
-    "Dhangana Mystics Healing",
-  ];
+  // Dynamic categories from backend services
+  const categories = useMemo(() => services.map((s) => s.serviceName), [services]);
 
-  const subCategories = {
-    "DhanGanga online public kendra": [
-      "PAN CARD",
-      "NEW G.S.T",
-      "G.S.T FILLING",
-      "MARRIAGE CERTIFICATE",
-      "ELECTRICITY BILL",
-      "BIRTH CERTIFICATE",
-      "GOVT RENT RECEIPT",
-      "DRIVING LICENSE",
-      "KOVID-19 CORONA VACCINE CERTIFICATE",
-      "FOOD LICENSE",
-      "TRADE LICENSE",
-      "DEATH CERTIFICATE",
-      "F.I.R. of any police station",
-      "I. T. R. Filing",
-      "L. P. C.",
-      "AADHAR CARD DOWNLOADING VIA O.T.P",
-      "VOTER LIST NAME ADDING",
-      "RATIONCARD APPLY",
-      "FARMER REGISTRATION",
-      "O.B.C CERTIFICATE",
-      "EWS",
-      "CASTE CERTIFICATE ONLINE",
-      "INCOME CERTIFICATE ONLINE",
-      "RESIDENTIAL CERTIFICATE ONLINE",
-      "SMALL INDUSTRIES LICENSE (M.S.M.E)",
-      "VANSHWLI PARMAN PATRA",
-      "ONLINE CORRECTION OF LAND",
-      "ONLINE MUTATION APPLY",
-    ],
-    "DhanGanga Association": [
-      "CRIMINAL",
-      "CIVIL",
-      "FAMILY MATTER",
-      "BHAGALPUR CIVIL COURT ALL WORK",
-      "Miscellaneous (विविध)",
-      "Service Matter"
-    ],
-    "DhanGanga physical Treatment Home": [
-      "Allopathy",
-      "Homeopathy",
-      "Electro Homeopathy",
-      "Ayurveda",
-      "Acupressure",
-      "Rekki",
-      "Astrology",
-      "Tantra- Mantra"
-    ],
-    "DhanGanga Store": [
-      "BUILDING MATERIAL (मकान निर्माण सामग्री)", 
-      "READYMADE CLOTH (रेडीमेड कपड़ा )", 
-      "COMPUETR & CCTV",
-      "GROCERY (किराना )",
-      "SOMEWHAT DIFFERENT (जरा हट के!)"
-    ],
-    "DhanGanga real Estate": [
-      "SALE",
-      "PURCHASE",
-      "RENT",
-      "LEASE",
-      "INVESTEMENT"
-    ],
-    "DhanGanga Hire Service": [
-      "RAJ MISTRI (राज मिस्त्री)",
-      "PLUMBER MISTRY (प्लम्बर मिस्त्री)",
-      "CARPENTER (बढ़ई मिस्त्री)",
-      "GRILL MISTRY (ग्रिल मिस्त्री)",
-      "RANG PAINT MISTRI (रंग-पेंट मिस्त्री)",
-      "PIELING MISTRY (पाइलिंग मिस्त्री)"
-    ],
-    "Dhanganga Hire Vehicle": [
-      "INSIDE YOUR DISTRICT",
-      "INSIDE YOUR STATE",
-      "INSIDE YOUR COUNTRY",
-    ],
-    "Naye Soch Naye Kadam": [
-      "JOINING NEW MEMBER",
-      "LOGIN OLD MEMBER",
-      "INTRODUCTION",
-      "TERM AND CONDITION",
-      "HOW TO JOIN AND WHAT ARE THE BENEFITS",
-      "FOUNDER DETAILS"
-    ],
-    "Netralay": [
-      "REGISTRATION FOR TREATMENT AT LAHAN HOSPITAL",
-      "REGISTRATION OF NETRAYALAY BHAGALPUR",
-    ],
-    "Dhangana Mystics Healing": [
-      "HEALING/ TREATMENT",
-      "TRAINING",
-    ],
-  };
+  // Dynamic subcategories from backend subservices filtered by selected service
+  const dynamicSubCategories = useMemo(() => {
+    const selectedService = services.find((s) => s.serviceName === selectedCategory);
+    if (!selectedService) return [];
+    return subServices
+      .filter((ss) => String(ss.service) === String(selectedService._id))
+      .map((ss) => ({
+        id: ss._id,
+        label: ss.name || ss.type || ss.title || ss._id,
+        fee: ss.fee,
+        time: ss.time,
+        doc: ss.doc,
+      }));
+  }, [services, subServices, selectedCategory]);
+
+  useEffect(() => {
+    let isMounted = true;
+    const load = async () => {
+      try {
+        const [svcRes, subSvcRes] = await Promise.all([fetchServices(), fetchSubServices()]);
+        if (!isMounted) return;
+        const svc = Array.isArray(svcRes.data) ? svcRes.data : svcRes.data?.services || svcRes.data?.data || [];
+        const subsvc = Array.isArray(subSvcRes.data) ? subSvcRes.data : subSvcRes.data?.subservices || subSvcRes.data?.data || [];
+        setServices(svc);
+        setSubServices(subsvc);
+      } catch (err) {
+        setError(err?.response?.data?.message || "Failed to load services");
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (selectedCategory && selectedSubCategory) {
-      const details = serviceData[selectedSubCategory] || {
-        price: "N/A",
-        days: "N/A",
-        documents: [],
-      };
+      const selected = dynamicSubCategories.find((s) => s.id === selectedSubCategory);
+      const details = selected
+        ? { price: selected.fee, days: selected.time, documents: selected.doc ? [selected.doc] : [] }
+        : serviceData[selectedSubCategory] || { price: "N/A", days: "N/A", documents: [] };
 
-      // ✅ Pass data via navigate state
       navigate("/service-details", {
         state: {
           category: selectedCategory,
-          subCategory: selectedSubCategory,
+          subCategory: selected?.label || selectedSubCategory,
           ...details,
         },
       });
@@ -372,11 +307,28 @@ const BookingModal = () => {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
           >
             <option value="">Select Category</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
+            {categories.length > 0
+              ? categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))
+              : [
+                  "DhanGanga online public kendra",
+                  "DhanGanga Association",
+                  "DhanGanga physical Treatment Home",
+                  "DhanGanga Store",
+                  "DhanGanga real Estate",
+                  "DhanGanga Hire Service",
+                  "Dhanganga Hire Vehicle",
+                  "Naye Soch Naye Kadam",
+                  "Netralay",
+                  "Dhangana Mystics Healing",
+                ].map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
           </select>
           {/* <ChevronDown className="absolute right-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" /> */}
         </div>
@@ -390,12 +342,23 @@ const BookingModal = () => {
             disabled={!selectedCategory}
           >
             <option value="">Select Sub Category</option>
-            {selectedCategory &&
-              subCategories[selectedCategory]?.map((subCat) => (
-                <option key={subCat} value={subCat}>
-                  {subCat}
-                </option>
-              ))}
+            {selectedCategory && dynamicSubCategories.length > 0
+              ? dynamicSubCategories.map((sub) => (
+                  <option key={sub.id} value={sub.id}>
+                    {sub.label}
+                  </option>
+                ))
+              : selectedCategory &&
+                [
+                  "PAN CARD",
+                  "NEW G.S.T",
+                  "G.S.T FILLING",
+                  "MARRIAGE CERTIFICATE",
+                ].map((subCat) => (
+                  <option key={subCat} value={subCat}>
+                    {subCat}
+                  </option>
+                ))}
           </select>
           {/* <ChevronDown className="absolute right-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" /> */}
         </div>

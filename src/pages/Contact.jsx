@@ -1,5 +1,6 @@
 // src/pages/Contact.jsx
 import { useState } from "react";
+import apiClient from "../apiClient";
 import { Mail, Phone, MapPin } from "lucide-react";
 import InformationExtra from "../components/InformationExtra";
 
@@ -16,9 +17,24 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Message sent! (Hook this up to backend or email service)");
+    setSubmitting(true);
+    setError("");
+    setSuccess("");
+    try {
+      const { data } = await apiClient.post("/api/contact/contact", form);
+      setSuccess(data?.message || "Message sent successfully.");
+      setForm({ name: "", email: "", mobile: "", subject: "", message: "" });
+    } catch (err) {
+      setError(err?.response?.data?.message || "Failed to send message. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -81,6 +97,12 @@ export default function Contact() {
           onSubmit={handleSubmit}
           className="bg-white shadow-xl rounded-2xl p-6 md:p-8 space-y-5 h-fit border border-gray-100 hover:shadow-2xl transition-shadow duration-300"
         >
+          {error && (
+            <div className="p-3 rounded-lg bg-red-50 text-red-700 text-sm border border-red-200">{error}</div>
+          )}
+          {success && (
+            <div className="p-3 rounded-lg bg-green-50 text-green-700 text-sm border border-green-200">{success}</div>
+          )}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
@@ -148,9 +170,10 @@ export default function Contact() {
                        text-white px-6 py-3 rounded-xl font-semibold 
                        bg-gradient-to-r from-blue-500 to-purple-500 
                        hover:opacity-90 active:scale-95 
-                       transition-all duration-300 shadow-lg"
+                       transition-all duration-300 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+            disabled={submitting}
           >
-            Send Message
+            {submitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </section>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   MessageCircle,
@@ -6,95 +7,38 @@ import {
   Star,
   Users,
 } from "lucide-react";
-import ServiceCard from "../components/ServiceCard";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { fetchServices } from "../api/services";
+import ServiceCard from "../components/ServiceCard";
+
+// Ensure motion is referenced for certain linters
+void motion;
 
 const Service = () => {
   const navigate = useNavigate();
 
-  const services = [
-    {
-      id: 1,
-      title: "Dhanganga Online Public Kendra",
-      description: "Responsive and functional IT design worldwide.",
-      icon: "💻",
-      link: "/discover-Public-Kendra",
-      category: "Digital Services",
-    },
-    {
-      id: 2,
-      title: "Dhanganga Associate",
-      description: "Delivering professional IT services and solutions.",
-      icon: "⚖️",
-      link: "/discover-Association",
-      category: "Professional Services",
-    },
-    {
-      id: 3,
-      title: "Dhanganga Physical Treatment Home",
-      description: "Modern approach to physical wellness & care.",
-      icon: "🏥",
-      link: "/discover-Physical",
-      category: "Healthcare",
-    },
-    {
-      id: 4,
-      title: "Dhanganga Store",
-      description: "Your trusted source for products & services.",
-      icon: "🏪",
-      link: "/discover-Store",
-      category: "Retail",
-    },
-    {
-      id: 5,
-      title: "Dhanganga Real Estate",
-      description: "Helping you find your dream properties.",
-      icon: "🏢",
-      link: "/discover-RealEstate",
-      category: "Real Estate",
-    },
-    {
-      id: 6,
-      title: "Dhanganga Hire Services",
-      description: "Providing on-demand professional services.",
-      icon: "🔧",
-      link: "/discover-Hire",
-      category: "Professional Services",
-    },
-    {
-      id: 7,
-      title: "Dhanganga Hire Vehicle",
-      description: "Vehicle rental solutions for all your needs.",
-      icon: "🚗",
-      link: "/discover-Vehicle",
-      category: "Transportation",
-    },
-    {
-      id: 8,
-      title: "Naye Soch Naya Kadam",
-      description: "Innovative solutions for a brighter tomorrow.",
-      icon: "💡",
-      link: "/discover-NayeSoch",
-      category: "Innovation",
-    },
-    {
-      id: 9,
-      title: "Netralay",
-      description: "Eye care and vision wellness at its best.",
-      icon: "👁️",
-      link: "/discover-Netralay",
-      category: "Healthcare",
-    },
-    {
-      id: 10,
-      title: "Dhanganga Mystics Healing",
-      description: "Spiritual & holistic healing practices.",
-      icon: "✨",
-      link: "/discover-Healing",
-      category: "Wellness",
-    },
-  ];
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let isMounted = true;
+    const load = async () => {
+      try {
+        const { data } = await fetchServices();
+        if (isMounted) setServices(Array.isArray(data) ? data : data?.services || data?.data || []);
+      } catch (err) {
+        if (isMounted) setError(err?.response?.data?.message || "Failed to load services");
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+    load();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const stats = [
     { number: "50+", label: "Services Offered", icon: Star },
@@ -179,25 +123,34 @@ const Service = () => {
         </motion.div>
 
         {/* Services Grid */}
+        {error && (
+          <div className="text-center text-red-600 mb-6">{error}</div>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 lg:mb-20">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
-              <ServiceCard
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                link={service.link}
-                category={service.category}
-              />
-            </motion.div>
-          ))}
+          {loading ? (
+            Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className="h-56 bg-slate-100 animate-pulse rounded-2xl" />
+            ))
+          ) : (
+            services.map((service, index) => (
+              <motion.div
+                key={service._id || index}
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+              >
+                <ServiceCard
+                  title={service.serviceName || service.title || "Service"}
+                  description={service.details || service.description || ""}
+                  icon={"🛠️"}
+                  link={"#"}
+                  category={undefined}
+                />
+              </motion.div>
+            ))
+          )}
         </div>
 
         {/* Call to Action Section */}
