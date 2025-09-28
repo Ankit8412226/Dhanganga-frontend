@@ -1,5 +1,5 @@
+import { ChevronDown, Phone, Upload } from "lucide-react";
 import { useState } from "react";
-import { ChevronDown, Upload, Phone } from "lucide-react";
 import InformationCard from "../components/InformationCard";
 
 const JoinUs = () => {
@@ -302,7 +302,7 @@ const FloatingInput = ({
   name,
   value,
   onChange,
-  placeholder,
+
   type = "text",
   required,
 }) => (

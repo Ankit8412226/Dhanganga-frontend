@@ -8,8 +8,8 @@ const BookingModal = () => {
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [services, setServices] = useState([]);
   const [subServices, setSubServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [_, setLoading] = useState(true);
+  const [__, setError] = useState("");
   const navigate = useNavigate();
 
   // ✅ All service data here
@@ -234,10 +234,13 @@ const BookingModal = () => {
     const selectedService = services.find((s) => s.serviceName === selectedCategory);
     if (!selectedService) return [];
     return subServices
-      .filter((ss) => String(ss.service) === String(selectedService._id))
+      .filter((ss) => {
+        const ssServiceId = typeof ss.service === "object" && ss.service?._id ? ss.service._id : ss.service;
+        return String(ssServiceId) === String(selectedService._id);
+      })
       .map((ss) => ({
         id: ss._id,
-        label: ss.name || ss.type || ss.title || ss._id,
+        label: ss.subServiceName || ss.details || ss._id,
         fee: ss.fee,
         time: ss.time,
         doc: ss.doc,
@@ -269,18 +272,23 @@ const BookingModal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (selectedCategory && selectedSubCategory) {
+      const selectedService = services.find((s) => s.serviceName === selectedCategory);
       const selected = dynamicSubCategories.find((s) => s.id === selectedSubCategory);
       const details = selected
         ? { price: selected.fee, days: selected.time, documents: selected.doc ? [selected.doc] : [] }
         : serviceData[selectedSubCategory] || { price: "N/A", days: "N/A", documents: [] };
 
-      navigate("/service-details", {
-        state: {
-          category: selectedCategory,
-          subCategory: selected?.label || selectedSubCategory,
-          ...details,
-        },
-      });
+      if (selectedService?._id) {
+        navigate(`/service-details/${selectedService._id}`, {
+          state: {
+            category: selectedCategory,
+            subCategory: selected?.label || selectedSubCategory,
+            ...details,
+          },
+        });
+      } else {
+        navigate("/services");
+      }
     }
   };
 

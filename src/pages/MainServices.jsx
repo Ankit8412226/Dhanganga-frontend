@@ -288,7 +288,7 @@ const MainService = () => {
                       title={service.serviceName || service.title || "Service"}
                       description={service.details || service.description || ""}
                       icon={"🛠️"}
-                      link={"#"}
+                      link={`/service-details/${service._id || service.id}`}
                       category={undefined}
                     />
                   </div>

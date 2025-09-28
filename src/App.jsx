@@ -113,7 +113,7 @@ function App() {
 
             {/* Booking / Service details pages */}
             <Route path="/booking" element={<BookingModal />} />
-            <Route path="/service-details" element={<ServiceDetails />} />
+            <Route path="/service-details/:id" element={<ServiceDetails />} />
             <Route
               path="/appointment-booking"
               element={<AppointmentBooking />}
