@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   ExternalLink,
   Facebook,
@@ -8,7 +9,6 @@ import {
   Phone,
   Twitter,
 } from "lucide-react";
-import { motion } from "framer-motion";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -75,8 +75,7 @@ const Footer = () => {
                 >
                   <MapPin className="w-5 h-5 text-blue-400 mt-1" />
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    NAYATOLA TINPULIYA (GANESHPUR) P.O.-KHIRIBANDH, P.S.-
-                    JAGDISHPUR, DIST.-BHAGALPUR
+                  NAYA TOLA TINPULIYA (GANESHPUR), P.O.- KHIRIBANDH, P.S.-  BY PASS, DIST.- BHAGALPUR (BIHAR) INDIA
                   </p>
                 </motion.div>
 
@@ -101,7 +100,7 @@ const Footer = () => {
                 >
                   <Phone className="w-5 h-5 text-blue-400" />
                   <a
-                    href="tel:+917764026786"
+                    href="tel:7764026786"
                     className="text-slate-300 text-sm font-semibold"
                   >
                     (+91) 7764026786

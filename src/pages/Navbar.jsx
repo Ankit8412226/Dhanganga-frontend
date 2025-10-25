@@ -81,7 +81,7 @@ const Navbar = () => {
               <div className="flex hover:text-blue-400 items-center gap-3 group cursor-pointer">
                 <Phone className="w-5 h-4 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
                 <a
-                  href="tel:+917764026786"
+                  href="tel:+91 7764026786"
                   className="text-sm font-semibold transition-colors duration-300"
                 >
                   (+91) 7764026786
@@ -123,7 +123,7 @@ const Navbar = () => {
               className="flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-blue-600" />
-              <a href="tel:+917764026786">(+91) 7764026786</a>
+              <a href="tel:+91 7764026786">(+91) 7764026786</a>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
