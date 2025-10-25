@@ -1,41 +1,54 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Discover from "./pages/Discover";
+import DiscoverAssociate from "./pages/DiscoverAssociate";
+import DiscoverHire from "./pages/DiscoverHire";
+import DiscoverPhysical from "./pages/DiscoverPhysical";
+import DiscoverRealEstate from "./pages/DiscoverRealEstate";
+import DiscoverStore from "./pages/DiscoverStore";
 import Experts from "./pages/Expert";
 import Footer from "./pages/Footer";
 import Hero from "./pages/Hero";
 import Information from "./pages/Information";
-import Navbar from "./pages/Navbar";
-import NetralayPage from "./pages/Netralay";
-import Service from "./pages/Services";
-import About from "./pages/About";
 import JoinUs from "./pages/JoinUs";
+import DiscoverPublicKendra from "./pages/LearnMore";
+import MainService from "./pages/MainServices";
+import Navbar from "./pages/Navbar";
 import News from "./pages/News";
 import Offer from "./pages/Offer";
-import Contact from "./pages/Contact";
-import MainService from "./pages/MainServices";
-import LearnMore from "./pages/LearnMore";
-import DiscoverPublicKendra from "./pages/LearnMore";
-import DiscoverAssociate from "./pages/DiscoverAssociate";
-import DiscoverPhysical from "./pages/DiscoverPhysical";
-import DiscoverStore from "./pages/DiscoverStore";
-import DiscoverRealEstate from "./pages/DiscoverRealEstate";
-import DiscoverHire from "./pages/DiscoverHire";
+import Service from "./pages/Services";
 
 // ✅ newly added pages
-import BookingModal from "./pages/AppointmentForm";
-import ServiceDetails from "./pages/ServiceDetails";
+import { useEffect } from "react";
 import AppointmentBooking from "./pages/AppointmentBooking.jsx";
-import PaymentPage from "./pages/PaymentPage.jsx";
-import DiscoverVehicle from "./pages/DiscoverVehicle.jsx";
+import BookingModal from "./pages/AppointmentForm";
+import DiscoverHealing from "./pages/DiscoverHealing.jsx";
 import DiscoverNayeSoch from "./pages/DiscoverNayeSoch.jsx";
 import DiscoverNetralay from "./pages/DiscoverNetralay.jsx";
-import DiscoverHealing from "./pages/DiscoverHealing.jsx";
+import DiscoverVehicle from "./pages/DiscoverVehicle.jsx";
 import MainAppoinment from "./pages/MainAppoinment.jsx";
+import PaymentPage from "./pages/PaymentPage.jsx";
+import ServiceDetails from "./pages/ServiceDetails";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // change to "auto" for instant scroll
+    });
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <Router>
       <div className="relative">
+            <ScrollToTop />
         {/* Navbar fixed top */}
         <Navbar />
 
