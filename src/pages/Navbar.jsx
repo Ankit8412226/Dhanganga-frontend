@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import {
   Calendar,
   ChevronDown,
@@ -14,7 +15,6 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,11 +43,6 @@ const Navbar = () => {
     if (bookingSection) {
       bookingSection.scrollIntoView({ behavior: "smooth", block: "center" });
     }
-    setIsMobileMenuOpen(false);
-  };
-
-  const handleNavClick = (href) => {
-    if (href === "#booking-section") scrollToBooking();
     setIsMobileMenuOpen(false);
   };
 

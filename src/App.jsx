@@ -21,6 +21,7 @@ import Service from "./pages/Services";
 
 // ✅ newly added pages
 import { useEffect } from "react";
+import MovingBanner from "./components/MovingBanner.jsx";
 import AppointmentBooking from "./pages/AppointmentBooking.jsx";
 import BookingModal from "./pages/AppointmentForm";
 import DiscoverHealing from "./pages/DiscoverHealing.jsx";
@@ -61,10 +62,16 @@ function App() {
               element={
                 <>
                   <Hero />
+                        <MovingBanner text="तेरा सपना सच हो" speed={10}  />
                   <Service />
                   <Discover />
+                        <MovingBanner text="तेरा सपना सच हो" speed={10}  />
                   <Experts />
                   <Information />
+
+
+
+
                 </>
               }
             />
