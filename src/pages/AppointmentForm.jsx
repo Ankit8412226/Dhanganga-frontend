@@ -293,7 +293,7 @@ const BookingModal = () => {
   };
 
   return (
-    <div className="bg-white mt-10 rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
+    <div className="bg-white -mt-50 rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
           Book appointment

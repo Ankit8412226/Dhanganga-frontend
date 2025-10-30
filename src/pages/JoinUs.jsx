@@ -251,10 +251,10 @@ const JoinUs = () => {
                 <div className="flex items-center justify-center mb-8">
                   <Phone className="h-8 w-8 text-blue-600 mr-3" />
                   <a
-                    href="tel:+917279078783"
+                    href="tel:+917764026786"
                     className="text-3xl font-extrabold text-blue-600 hover:text-blue-700 transition"
                   >
-                    (+91) 7279078783
+                    (+91) 7764026786
                   </a>
                 </div>
 

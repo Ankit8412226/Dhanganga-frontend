@@ -327,7 +327,7 @@ const DiscoverPublicKendra = () => {
                     <p className="text-sm opacity-80 uppercase tracking-wider">
                       Call for advice now
                     </p>
-                    <p className="text-2xl font-bold">(+91) 7279078783</p>
+                    <p className="text-2xl font-bold">(+91) 7764026786</p>
                   </div>
                 </div>
 

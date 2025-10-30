@@ -49,35 +49,28 @@ function App() {
   return (
     <Router>
       <div className="relative">
-            <ScrollToTop />
+        <ScrollToTop />
         {/* Navbar fixed top */}
         <Navbar />
 
         {/* Page wrapper with top padding for fixed Navbar */}
         <main className="pt-32 sm:pt-36 lg:pt-40">
           <Routes>
-            {/* Home Page */}
+            {/* ✅ Home Page */}
             <Route
               path="/"
               element={
                 <>
                   <Hero />
-                        <MovingBanner text="तेरा सपना सच हो" speed={10}  />
+                  {/* <MovingBanner text="तेरा  सपना  सच  हो" speed={20} /> */}
                   <Service />
                   <Discover />
-                        <MovingBanner text="तेरा सपना सच हो" speed={10}  />
+                  {/* <MovingBanner text="तेरा  सपना  सच  हो" speed={20} /> */}
                   <Experts />
                   <Information />
-
-
-
-
                 </>
               }
             />
-
-            {/* Netralay Page */}
-            {/* <Route path="/netralay" element={<NetralayPage />} /> */}
 
             {/* About Page */}
             <Route path="/about" element={<About />} />

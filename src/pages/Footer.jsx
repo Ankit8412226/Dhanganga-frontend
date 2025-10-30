@@ -59,13 +59,7 @@ const Footer = () => {
               variants={fadeInUp}
               custom={1}
             >
-              <motion.img
-                src="dhanganga.jpg"
-                alt="Dhanganga"
-                className="w-[140px]"
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              />
+              {/* Removed logo image */}
 
               <div className="space-y-4">
                 <motion.div
@@ -75,7 +69,8 @@ const Footer = () => {
                 >
                   <MapPin className="w-5 h-5 text-blue-400 mt-1" />
                   <p className="text-slate-300 text-sm leading-relaxed">
-                  NAYA TOLA TINPULIYA (GANESHPUR), P.O.- KHIRIBANDH, P.S.-  BY PASS, DIST.- BHAGALPUR (BIHAR) INDIA
+                    NAYA TOLA TINPULIYA (GANESHPUR), P.O.- KHIRIBANDH, P.S.- BY
+                    PASS, DIST.- BHAGALPUR (BIHAR) INDIA
                   </p>
                 </motion.div>
 

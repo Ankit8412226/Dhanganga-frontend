@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import MovingBanner from "../components/MovingBanner.jsx";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,23 +50,23 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-700 ${
-        isScrolled
-          ? "glass-effect shadow-2xl shadow-slate-200/30"
-          : "bg-gray-200 backdrop-blur-md shadow-xl shadow-slate-100/40"
-      }`}
+      className={`fixed w-full h-[130px] z-50 mb-6 transition-all duration-700 ${isScrolled
+        ? "glass-effect shadow-2xl shadow-slate-200/30"
+        : "bg-gray-200 backdrop-blur-md shadow-xl shadow-slate-100/40"
+        }`}
     >
       {/* Top section with logo & contact */}
       <div className="border-b border-slate-200/40">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between py-5 sm:py-6">
+          {/* Reduced padding here */}
+          <div className="flex items-center justify-between py-2 sm:py-3">
             {/* Logo */}
             <div className="flex-shrink-0 group cursor-pointer">
               <div className="relative hover-lift">
                 <img
                   src="dhanganga.jpg"
                   alt="DhanGanga"
-                  className="h-30 w-auto hover:scale-105 object-contain hover:rotate-5 relative z-10 drop-shadow-sm group-hover:drop-shadow-lg transition-all duration-300"
+                  className="h-16 w-auto hover:scale-105 object-contain hover:rotate-5 relative z-10 drop-shadow-sm group-hover:drop-shadow-lg transition-all duration-300"
                 />
                 <Sparkles className="absolute -top-1 -right-1 w-3 h-3 text-blue-400 animate-bounce-soft opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
@@ -115,7 +116,7 @@ const Navbar = () => {
           </div>
 
           {/* Contact info mobile (below logo) */}
-          <div className="flex flex-col items-start gap-2 xl:hidden pb-3 text-sm">
+          <div className="flex flex-col items-start gap-2 xl:hidden pb-2 text-sm">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -146,9 +147,16 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <div className="-mt-0 flex justify-center -mb-5">
+        <div className="w-[95%] h-px mb-0 ">
+          <MovingBanner text="तेरा&nbsp;&nbsp;&nbsp;सपना&nbsp;&nbsp;&nbsp;सच&nbsp;&nbsp;&nbsp;हो" speed={20} />
 
+        </div>
+      </div>
       {/* Navigation links */}
-      <nav className="relative bg-gradient-to-r from-slate-50/95 to-white/95 backdrop-blur-sm">
+      {/* <nav className="relative bg-gradient-to-r from-slate-50/95 to-white/95 backdrop-blur-sm"> */}
+      <nav className="relative -mt-1.5 bg-gradient-to-r from-slate-50/95 to-white/95 backdrop-blur-sm">
+
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between">
             {/* Desktop nav */}
@@ -159,10 +167,9 @@ const Navbar = () => {
                     to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`relative flex items-center gap-1 px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 overflow-hidden
-                      ${
-                        location.pathname === item.href
-                          ? "text-blue-600 bg-white/60 shadow-md border border-blue-100"
-                          : "text-slate-700 hover:text-blue-600 hover:bg-white/40 hover:shadow-sm"
+                      ${location.pathname === item.href
+                        ? "text-blue-600 bg-white/60 shadow-md border border-blue-100"
+                        : "text-slate-700 hover:text-blue-600 hover:bg-white/40 hover:shadow-sm"
                       }`}
                   >
                     <span className="relative z-10">{item.name}</span>
@@ -207,11 +214,10 @@ const Navbar = () => {
                     <Link
                       to={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
-                        location.pathname === item.href
-                          ? "text-blue-600 bg-white/60 shadow-md border border-blue-100"
-                          : "text-slate-700 hover:text-blue-600 hover:bg-white/40"
-                      }`}
+                      className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${location.pathname === item.href
+                        ? "text-blue-600 bg-white/60 shadow-md border border-blue-100"
+                        : "text-slate-700 hover:text-blue-600 hover:bg-white/40"
+                        }`}
                     >
                       {item.name}
                     </Link>

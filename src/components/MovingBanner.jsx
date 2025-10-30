@@ -3,7 +3,8 @@ import React from "react";
 function MovingBanner({
   text = "तेरा सपना सच हो",
   speed = 15,
-  direction = "right"
+  direction = "left"
+  
 }) {
   const animationName = direction === "right" ? "slide-right" : "slide-left";
 

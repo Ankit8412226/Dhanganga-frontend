@@ -334,7 +334,7 @@ const MainService = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-blue-600" />
-                    <span>+91 9234692692</span>
+                    <span>+91 7764026786</span>
                   </div>
                   <div className="hidden sm:block w-1 h-1 bg-gray-400 rounded-full"></div>
                   <div className="flex items-center gap-2">

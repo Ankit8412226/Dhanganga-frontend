@@ -88,7 +88,7 @@ export default function Contact() {
           {/* Phone */}
           <div className="flex items-center gap-4">
             <Phone className="w-6 h-6 text-green-600" />
-            <p className="font-bold text-lg">(+91) 72790 87893</p>
+            <p className="font-bold text-lg">(+91) 7764026786</p>
           </div>
         </div>
 

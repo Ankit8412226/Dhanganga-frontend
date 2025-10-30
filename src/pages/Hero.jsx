@@ -56,11 +56,11 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img
+        {/* <img
           src="https://nayesochnayakadam.com/assets/images/hero/home-appointment-hero-bg-image.webp"
           alt="Healthcare background"
           className="w-full h-full object-cover"
-        />
+        /> */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/30"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
@@ -93,7 +93,7 @@ const Hero = () => {
               className="inline-flex items-center bg-blue-500/20 backdrop-blur-sm border border-white/20 rounded-full px-4 sm:px-6 py-2 text-xs sm:text-sm font-medium"
             >
               <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-              Trusted Healthcare Provider
+                Your All-in-One Service Provider
             </motion.div>
 
             {/* Heading */}
@@ -125,9 +125,7 @@ const Hero = () => {
               custom={2}
               className="text-lg sm:text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
-              Experience world-class healthcare with our expert medical
-              professionals. Your health is our priority, your care is our
-              commitment.
+              Dhanganga is your one-stop destination for all types of services from healthcare and IT to home maintenance, education, and more. We are committed to providing reliable, efficient, and affordable solutions through experienced professionals. Whatever your need, we deliver with care, trust, and excellence.
             </motion.p>
 
             {/* Features */}
